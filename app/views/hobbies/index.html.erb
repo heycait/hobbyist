@@ -1,0 +1,5 @@
+<%= @hobbies.each do |hobby| %>
+  <h3><%= hobby.name %></h3>
+  <p><%= hobby.description %></p>
+  <img src="<%= hobby.image_url %>">
+<% end %>
