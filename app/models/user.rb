@@ -11,4 +11,23 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :email, presence: true
 
+
+
+  def self.from_omniauth(auth)
+    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+      # puts '*' * 50
+      # p auth
+      # puts '*' * 50
+      user.provider = auth.provider
+      user.uid = auth.uid
+      # Random Username incase of same name
+      user.username = auth.info.name + SecureRandom.base64
+      user.email = auth.info.email
+      user.password = SecureRandom.base64
+      user.image_url = auth.info.image
+      user.save!
+    end
+  end
+
+
 end
