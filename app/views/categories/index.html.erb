@@ -4,7 +4,17 @@
 
 <div id="category_list">
   <% @categories.each do |category| %>
-    <div class="category tile"><%= link_to category.name, category %></div>
+    <div class="category tile hover">
+      <div class="front">
+        <div class="pad">
+          <%= link_to category.name, category %>
+        </div>
+      </div>
+      <div class="back">
+        <div class="pad">
+          <%= link_to category.name, category %>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>
-

@@ -1,7 +1,7 @@
 <h1><%= @category.name %></h1>
 <div id="show_category">
   <% @hobbies.each do |hobby| %>
-  <div class="tile"><%= link_to hobby.name, hobby %></div>
+  <div class="tile hobby_link"><%= link_to hobby.name, hobby %></div>
   <% end %>
 </div>
 
