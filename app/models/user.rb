@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :hobbies
 
   validates :username, :email, :image_url, presence: true
+  validates_uniqueness_of :email
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
@@ -17,8 +18,7 @@ class User < ActiveRecord::Base
       # puts '*' * 50
       user.provider = auth.provider
       user.uid = auth.uid
-      # Random Username incase of same name
-      user.username = auth.info.name + SecureRandom.base64
+      user.username = auth.info.name
       user.email = auth.info.email
       user.password = SecureRandom.base64
       user.image_url = auth.info.image
