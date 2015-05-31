@@ -100,9 +100,9 @@ categories.each do |cat, params|
     new_hobby = Hobby.create(name: hobby, description: Faker::Lorem.paragraph, image_url: Faker::Avatar.image, category_id: new_cat.id)
     all_users.sample.hobbies << new_hobby
 
-    1.times do
+    3.times do
       new_question = Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph, user_id: all_users.sample.id, hobby_id: new_hobby.id)
-      2.times do
+      3.times do
         new_answer = Answer.create(body: Faker::Company.bs, question_id: new_question.id, user_id: all_users.sample.id)
       end
     end
