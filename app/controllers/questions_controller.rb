@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: [:edit, :show, :destroy, :question]
+  before_action :find_question, only: [:edit, :show, :destroy, :vote]
 
   def index
     questions = Question.order('created_at DESC').all
