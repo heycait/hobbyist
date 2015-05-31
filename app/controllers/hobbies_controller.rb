@@ -19,11 +19,14 @@ class HobbiesController < ApplicationController
   end
 
   def show
+    result = request.location
+    lat = result.latitude
+    long = result.longitude
     text = @hobby.name.gsub(/ /, '%20').downcase
 
     category = Category.where(id: @hobby.category_id).first.meetup_id
     response = HTTParty.get(
-          "https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=37.7841336&lon=-122.3957437&text=#{text}&time=-0,3m&page=3&key=2818c11ba3357336e7b4c19552049"
+          "https://api.meetup.com/2/open_events?&sign=true&photo-host=public&lat=#{lat}&lon=#{long}&text=#{text}&time=-0,3m&page=3&key=2818c11ba3357336e7b4c19552049"
         )
     @meetups = response['results']
     @questions = @hobby.questions
