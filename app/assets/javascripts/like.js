@@ -1,8 +1,8 @@
 $(document).on('page:change', function() {
-  bindEvents();
+  bindLikeEvents();
 });
 
-function bindEvents() {
+function bindLikeEvents() {
   $('body').on('click', '.like', likeHobby)
 }
 

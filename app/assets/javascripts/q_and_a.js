@@ -1,12 +1,12 @@
-// $(document).on('page:change', function() {
-$(document).ready(function(){
-  bindEvents();
+$(document).on('page:change', function() {
+  bindQuestionEvents();
 
 });
 
-function bindEvents() {
-  $('#questions').on('click', '.vote', vote)
-}
+function bindQuestionEvents() {
+  console.log('bind')
+  $('body').on('click', 'a.vote', vote)
+};
 
 function vote(event){
   debugger
