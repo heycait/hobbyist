@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations' }
   resources :users
   resources :categories
+  get "hobbies/:id/like" => "hobbies#like"
   resources :hobbies
-
 
 
   root 'categories#index'

@@ -1,5 +1,4 @@
 $(document).on('page:change', function() {
-  bindEvents();
   $('.tile').hover(function(){
       $(this).addClass('flip');
   },function(){
