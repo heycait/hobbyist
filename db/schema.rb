@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531004646) do
+ActiveRecord::Schema.define(version: 20150531054214) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "body"
     t.integer  "question_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "vote_count",  default: 0
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id"
@@ -65,28 +66,29 @@ ActiveRecord::Schema.define(version: 20150531004646) do
     t.string   "body"
     t.integer  "hobby_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "vote_count", default: 0
   end
 
   add_index "questions", ["hobby_id"], name: "index_questions_on_hobby_id"
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",                                                                           null: false
+    t.string   "encrypted_password",     default: "",                                                                           null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,                                                                            null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                                                                                                    null: false
+    t.datetime "updated_at",                                                                                                    null: false
     t.string   "username"
-    t.string   "image_url"
+    t.string   "image_url",              default: "http://www.genengnews.com/app_themes/genconnect/images/default_profile.jpg"
     t.string   "provider"
     t.string   "uid"
     t.float    "latitude"

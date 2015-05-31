@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :find_answer, only: [:edit, :show, :destroy]
+  before_action :find_answer, only: [:edit, :show, :destroy, :vote]
   before_action :authenticate_user_from_token!, only: [:edit, :destroy]
 
   def index
@@ -36,6 +36,19 @@ class AnswersController < ApplicationController
       end
     else
       render json: {errors: 'Bad Request'}, status: 400
+    end
+  end
+
+  def vote
+    if params[:vote] == 'upvote'
+      @answer.vote_count += 1
+    elsif params[:vote] == 'downvote'
+      @answer.vote_count -= 1
+    end
+    if @answer.save
+      render json: @answer.vote_count
+    else
+      render json: 'fu', status: 400
     end
   end
 

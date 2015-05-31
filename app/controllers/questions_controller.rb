@@ -1,6 +1,5 @@
 class QuestionsController < ApplicationController
-
-  before_action :find_question, only: [:edit, :show, :destroy]
+  before_action :find_question, only: [:edit, :show, :destroy, :vote]
 
   def index
     questions = Question.order('created_at DESC').all
@@ -45,6 +44,23 @@ class QuestionsController < ApplicationController
       end
     else
       render json: {errors: 'Bad Request'}, status: 400
+    end
+  end
+
+  def vote
+    if params[:vote] == 'upvote'
+      @question.vote_count += 1
+    elsif params[:vote] == 'downvote'
+      @question.vote_count -= 1
+    end
+    if @question.save
+      if request.xhr?
+        render json: @question.vote_count
+      else
+        redirect_to root_path
+      end
+    else
+      render json: 'fu', status: 400
     end
   end
 

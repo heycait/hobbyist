@@ -12,13 +12,16 @@
 </div>
 
 <div id="meetups">
-  <% if @meetups%>
-  <% @meetups.each do |meetup| %>
-    <p>
-      <%= Time.at(meetup['time'].to_s.slice(0, 10).to_i).strftime("%m/%d/%Y") %>
-      <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
-    </p>
-  <% end %>
+  <% if @meetups %>
+    <h4>Upcoming Meetup Events</h4>
+    <% @meetups.each do |meetup| %>
+      <p>
+        <%= format_time(meetup['time']) %>
+        <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
+      </p>
+    <% end %>
+  <% else %>
+    <h4>No Meetup Events</h4>
   <% end %>
 </div>
 
@@ -110,17 +113,32 @@
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= question.id %>" aria-expanded="true" aria-controls="collapse<%= question.id %>">
           <%= question.title %>?
         </a>
+
       </h4>
     </div>
     <div id="collapse<%= question.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= question.id %>">
       <div class="panel-body">
-        <div class="question_body"><%= question.body %></div>
-        <ul>
+        <div class="question_body">
+          <%= question.body %>
+          <p>
+            <%= link_to raw('<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>'), question_path(question)+'/upvote', class: 'vote' %>
+            <span><%= question.vote_count %></span>
+            <%= link_to raw('<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>'), question_path(question)+'/downvote', class: 'vote' %>
+          </p>
+          <p>asked by <%= author(question) %> on <%= question.created_at.strftime("%m/%d/%Y") %></p>
+        </div>
+        <ul class="answer_list">
           <% question.answers.each do |answer| %>
-            <li><%= answer.body %> posted by <%= answer.user_id %></li>
+            <li>
+              <%= answer.body %>
+              posted by <%= author(answer) %>
+              <%= link_to raw('<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>'), answer_path(answer)+'/upvote', class: 'vote' %>
+              <span><%= answer.vote_count %></span>
+              <%= link_to raw('<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>'), answer_path(answer)+'/downvote', class: 'vote' %>
+            </li>
           <% end %>
         </ul>
-        <button class="add_answer_button">Add answer</button>
+        <button class="add_answer_button btn btn-default">Add answer</button>
       </div>
     </div>
   </div>
