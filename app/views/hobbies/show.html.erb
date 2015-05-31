@@ -12,11 +12,16 @@
 </div>
 
 <div id="meetups">
-  <% @meetups.each do |meetup| %>
-    <p>
-      <%= Time.at(meetup['time'].to_s.slice(0, 10).to_i).strftime("%m/%d/%Y") %>
-      <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
-    </p>
+  <% if @meetups %>
+    <h4>Upcoming Meetup Events</h4>
+    <% @meetups.each do |meetup| %>
+      <p>
+        <%= format_time(meetup['time']) %>
+        <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
+      </p>
+    <% end %>
+  <% else %>
+    <h4>No Meetup Events</h4>
   <% end %>
 </div>
 
@@ -120,12 +125,13 @@
             <span><%= question.vote_count %></span>
             <%= link_to raw('<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>'), question_path(question)+'/downvote', class: 'vote' %>
           </p>
+          <p>asked by <%= author(question) %> on <%= question.created_at.strftime("%m/%d/%Y") %></p>
         </div>
         <ul class="answer_list">
           <% question.answers.each do |answer| %>
             <li>
               <%= answer.body %>
-              posted by <%= answer.user_id %>
+              posted by <%= author(answer) %>
               <%= link_to raw('<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>'), answer_path(answer)+'/upvote', class: 'vote' %>
               <span><%= answer.vote_count %></span>
               <%= link_to raw('<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>'), answer_path(answer)+'/downvote', class: 'vote' %>
