@@ -115,9 +115,15 @@
     <div id="collapse<%= question.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= question.id %>">
       <div class="panel-body">
         <div class="question_body"><%= question.body %></div>
-        <ul>
+        <ul class="answer_list">
           <% question.answers.each do |answer| %>
-            <li><%= answer.body %> posted by <%= answer.user_id %></li>
+            <li>
+              <%= answer.body %>
+              posted by <%= answer.user_id %>
+              <%= link_to raw('<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>'), answer_path(answer)+'/upvote', class: 'vote' %>
+              <%= link_to raw('<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>'), answer_path(answer)+'/downvote', class: 'vote' %>
+              <span><%= answer.vote_count %></span>
+            </li>
           <% end %>
         </ul>
         <button class="add_answer_button">Add answer</button>

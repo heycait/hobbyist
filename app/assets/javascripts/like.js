@@ -1,6 +1,5 @@
 $(document).on('page:change', function() {
   bindEvents();
-
 });
 
 function bindEvents() {

@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   resources :categories
   get "hobbies/:id/like" => "hobbies#like"
   resources :hobbies
+  resources :questions
+  resources :answers
+
+  get '/questions/:id/:vote' => 'questions#vote'
+  get '/answers/:id/:vote' => 'answers#vote'
 
 
   root 'categories#index'
