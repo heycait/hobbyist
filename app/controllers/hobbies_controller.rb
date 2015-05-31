@@ -19,9 +19,8 @@ class HobbiesController < ApplicationController
   end
 
   def show
-    result = request.location
-    lat = result.latitude
-    long = result.longitude
+    lat = request.location.latitude
+    long = request.location.longitude
     text = @hobby.name.gsub(/ /, '%20').downcase
 
     category = Category.where(id: @hobby.category_id).first.meetup_id

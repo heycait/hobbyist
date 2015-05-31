@@ -9,7 +9,7 @@ function bindLikeEvents() {
 function likeHobby() {
   event.preventDefault();
   var link = $(this);
-  var url = 'http://localhost:3000' + $(this).attr('href');
+  var url = $(this).attr('href');
   $.ajax({
     url: url,
     type: 'get'
