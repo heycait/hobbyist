@@ -2,13 +2,7 @@
   <h3 id="hobby_title"><%= @hobby.name %></h3>
   <p><%= @hobby.description %></p>
   <img src="<%= @hobby.image_url %>">
-    <a class="btn btn-primary btn-lg like" href="/hobbies/<%= @hobby.id %>/like" role="button">
-      <% if current_user.hobbies.include?(@hobby) %>
-        Unlike
-      <% else %>
-        Like
-      <% end %>
-    </a>
+    <a class="btn btn-primary btn-lg like" href="/hobbies/<%= @hobby.id %>/like" role="button"><% if current_user.hobbies.include?(@hobby) %>Unlike<% else %>Like<% end %></a>
 </div>
 
 <div id="meetups">
