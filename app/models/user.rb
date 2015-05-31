@@ -8,10 +8,7 @@ class User < ActiveRecord::Base
   has_many :questions
   has_and_belongs_to_many :hobbies
 
-  validates :username, presence: true
-  validates :email, presence: true
-
-
+  validates :username, :email, :image_url, presence: true
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

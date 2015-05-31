@@ -80,6 +80,8 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
+    imgur-api (0.0.4)
+      httparty
     jbuilder (2.2.16)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -201,6 +203,7 @@ DEPENDENCIES
   faker
   geocoder
   httparty
+  imgur-api
   jbuilder (~> 2.0)
   jquery-rails
   omniauth

@@ -50,3 +50,6 @@ gem 'faker'
 # Omniauth for OAuth
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+# IMGUR
+gem 'imgur-api'
