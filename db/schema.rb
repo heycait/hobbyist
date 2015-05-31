@@ -88,13 +88,10 @@ ActiveRecord::Schema.define(version: 20150530224446) do
     t.datetime "updated_at",                                                                                                    null: false
     t.string   "username"
     t.string   "image_url",              default: "http://www.genengnews.com/app_themes/genconnect/images/default_profile.jpg"
-<<<<<<< HEAD
     t.float    "latitude"
     t.float    "longitude"
-=======
     t.string   "provider"
     t.string   "uid"
->>>>>>> master
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
