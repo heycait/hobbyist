@@ -46,3 +46,7 @@ end
 
 gem 'devise'
 gem 'faker'
+
+# Omniauth for OAuth
+gem 'omniauth'
+gem 'omniauth-facebook'
