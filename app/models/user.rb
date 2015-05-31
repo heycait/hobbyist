@@ -13,9 +13,9 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
-      puts '*' * 50
-      p auth
-      puts '*' * 50
+      # puts '*' * 50
+      # p auth
+      # puts '*' * 50
       user.provider = auth.provider
       user.uid = auth.uid
       user.username = auth.info.name
