@@ -1,3 +1,7 @@
+<h1>Hello, <%= current_user.username %></h1>
+
+<img src="<%= current_user.image_url %>">
+
 <% if user_signed_in? %>
   <li>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
