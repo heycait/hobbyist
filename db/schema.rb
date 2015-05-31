@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150530224446) do
+ActiveRecord::Schema.define(version: 20150531004646) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "body"
@@ -88,10 +87,10 @@ ActiveRecord::Schema.define(version: 20150530224446) do
     t.datetime "updated_at",                                                                                                    null: false
     t.string   "username"
     t.string   "image_url",              default: "http://www.genengnews.com/app_themes/genconnect/images/default_profile.jpg"
-    t.float    "latitude"
-    t.float    "longitude"
     t.string   "provider"
     t.string   "uid"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
