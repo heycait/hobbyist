@@ -143,6 +143,13 @@
   <iframe width="320" height="215" src="" allowfullscreen id="iframe"></iframe>'
 </div>
 
-
+<div>
+  <h4>Followers</h4>
+  <ul id="following_users">
+    <% @hobby.users.each do |user| %>
+      <li><%= user.username %></li>
+    <% end %>
+  </ul>
+</div>
 
 
