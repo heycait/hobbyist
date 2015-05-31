@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :hobbies
 
+
+
   root 'categories#index'
   # root 'users#sign_up'
   # The priority is based upon order of creation: first created -> highest priority.

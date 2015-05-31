@@ -1,3 +1,23 @@
+body {
+    background-image: url("background.jpg");
+    background-size: 100%, 100%;
+}
+
+#questions {
+    width: 50%;
+    margin: auto;
+}
+
+.question_body {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: grey;
+}
+
+.add_answer_button {
+    float: right;
+}
+
 .tile {
     margin: 2%;
     width: 130px;

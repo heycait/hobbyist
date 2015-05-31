@@ -1,9 +1,122 @@
-<h3><%= @hobby.name %></h3>
-<p><%= @hobby.description %></p>
-<img src="<%= @hobby.image_url %>">
-<% @meetups.each do |meetup| %>
-  <p>
-    <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
-    hosted by: <%= meetup['group']['name'] %>
-  </p>
-<% end %>
+<div id="hobby_header">
+  <h3><%= @hobby.name %></h3>
+  <p><%= @hobby.description %></p>
+  <img src="<%= @hobby.image_url %>">
+</div>
+
+<div id="meetups">
+  <% @meetups.each do |meetup| %>
+    <p>
+      <%= Time.at(meetup['time'].to_s.slice(0, 10).to_i).strftime("%m/%d/%Y") %>
+      <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
+    </p>
+  <% end %>
+</div>
+
+
+<!-- <section class="container">
+  <table class="cal">
+    <caption>
+      <span class="prev"><a href="#">&larr;</a></span>
+      <span class="next"><a href="#">&rarr;</a></span>
+      January 2012
+    </caption>
+    <thead>
+      <tr>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+        <th>Sun</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="off"><a href="#">26</a></td>
+        <td class="off"><a href="#">27</a></td>
+        <td class="off"><a href="#">28</a></td>
+        <td class="off"><a href="#">29</a></td>
+        <td class="off"><a href="#">30</a></td>
+        <td class="off"><a href="#">31</a></td>
+        <td><a href="#">1</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">2</a></td>
+        <td><a href="#">3</a></td>
+        <td><a href="#">4</a></td>
+        <td><a href="#">5</a></td>
+        <td><a href="#">6</a></td>
+        <td><a href="#">7</a></td>
+        <td><a href="#">8</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">9</a></td>
+        <td><a href="#">10</a></td>
+        <td><a href="#">11</a></td>
+        <td><a href="#">12</a></td>
+        <td><a href="#">13</a></td>
+        <td><a href="#">14</a></td>
+        <td><a href="#">15</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">16</a></td>
+        <td><a href="#">17</a></td>
+        <td><a href="#">18</a></td>
+        <td><a href="#">19</a></td>
+        <td><a href="#">20</a></td>
+        <td><a href="#">21</a></td>
+        <td><a href="#">22</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">23</a></td>
+        <td><a href="#">24</a></td>
+        <td><a href="#">25</a></td>
+        <td><a href="#">26</a></td>
+        <td><a href="#">27</a></td>
+        <td class="active"><a href="#">28</a></td>
+        <td><a href="#">29</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">30</a></td>
+        <td><a href="#">31</a></td>
+        <td class="off"><a href="#">1</a></td>
+        <td class="off"><a href="#">2</a></td>
+        <td class="off"><a href="#">3</a></td>
+        <td class="off"><a href="#">4</a></td>
+        <td class="off"><a href="#">5</a></td>
+      </tr>
+    </tbody>
+  </table>
+</section> -->
+
+
+<div id="questions" class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <h2>Questions</h2>
+  <button id="add_question_button">Add question</button>
+  <% @questions.each do |question| %>
+  <div class="panel panel-primary">
+    <div class="panel-heading" role="tab" id="heading<%= question.id %>">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= question.id %>" aria-expanded="true" aria-controls="collapse<%= question.id %>">
+          <%= question.title %>?
+        </a>
+      </h4>
+    </div>
+    <div id="collapse<%= question.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= question.id %>">
+      <div class="panel-body">
+        <div class="question_body"><%= question.body %></div>
+        <ul>
+          <% question.answers.each do |answer| %>
+            <li><%= answer.body %> posted by <%= answer.user_id %></li>
+          <% end %>
+        </ul>
+        <button class="add_answer_button">Add answer</button>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
