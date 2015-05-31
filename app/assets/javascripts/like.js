@@ -14,7 +14,6 @@ function likeHobby() {
     url: url,
     type: 'get'
   }).done(function(data) {
-    console.log(data)
     $(link).text(function(i, text){
       return text === "Like" ? "Unlike" : "Like";
     })
