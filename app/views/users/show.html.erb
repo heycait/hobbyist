@@ -2,6 +2,15 @@
 
 <img src="<%= current_user.image_url %>">
 
+
+<h2>Following:</h2>
+<ul>
+  <% current_user.hobbies.each do |hobby| %>
+    <li><%= link_to hobby.name, hobby %></li>
+  <% end %>
+</ul>
+
+
 <% if user_signed_in? %>
   <li>
   <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
