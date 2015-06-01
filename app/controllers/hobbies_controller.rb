@@ -7,24 +7,26 @@ class HobbiesController < ApplicationController
   end
 
   def create
-    user = current_user
     hobby = Hobby.new(hobby_params)
 
-    imgur_client = Imgur.new('891321eba378312')
-    image_path = params[:hobby][:image_url].tempfile.path
-    image = Imgur::LocalImage.new(image_path)
-    imgur_url = imgur_client.upload(image).link
+    if hobby_params[:image_url]
+      imgur_client = Imgur.new('891321eba378312')
+      image_path = hobby_params[:image_url].tempfile.path
+      image = Imgur::LocalImage.new(image_path)
+      imgur_url = imgur_client.upload(image).link
 
-    hobby.name = params[:name]
-    hobby.description = params[:description]
-    hobby.image_url = imgur_url
+      hobby.image_url = imgur_url
+    end
     hobby.creator_id = current_user.id
 
     hobby.save
+    redirect_to hobby_path(hobby.id)
   end
 
   def new
     @hobby = Hobby.new
+    @category = Category.all.sample
+    @categories = Category.order(name: :asc)
   end
 
   def edit
@@ -69,7 +71,7 @@ class HobbiesController < ApplicationController
 
   private
   def hobby_params
-    params.require(:hobby).permit(:name, :description, :image_url, :creator_id)
+    params.require(:hobby).permit(:name, :description, :image_url, :creator_id, :category_id)
   end
 
   def find_hobby
