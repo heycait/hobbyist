@@ -125,7 +125,7 @@
           <p>asked by <%= author(question) %> on <%= question.created_at.strftime("%m/%d/%Y") %></p>
         </div>
         <ul class="answer_list">
-        <% question.answers.each do |answer| %>
+        <% question.answers.sort { |a, b| b.vote_count <=> a.vote_count }.each do |answer| %>
           <li>
             <%= answer.body %>
             posted by <%= author(answer) %>
