@@ -6,6 +6,7 @@ function bindQuestionEvents() {
   $('body').on('click', 'a.vote', vote)
   // $('body').on('click', '.add_answer_button', answerModal)
   $('.new_answer').on('submit', createAnswer);
+  $('.new_question').on('submit', createQuestion);
 };
 
 function vote(event){
@@ -48,8 +49,7 @@ function createAnswer () {
     url: '/answers',
     type: 'post',
     data: data
-  });
-  response.done(function(answer) {
+  }).done(function(answer) {
     var question_id = $('.open')[0].classList[0];
     var modal = $('#modal'+question_id);
 
@@ -57,8 +57,29 @@ function createAnswer () {
     modal.find('textarea').val('');
 
     $('#panel'+question_id).find('ul').append(answer);
+  }).fail(function() {
+    console.log('error');
   });
-  response.fail(function() {
+}
+
+function createQuestion () {
+  event.preventDefault();
+
+  var data = $(this).serialize();
+
+  var response = $.ajax({
+    url: '/questions',
+    type: 'post',
+    data: data
+  }).done(function(question) {
+    var modal = $('#new-question-modal');
+
+    modal.foundation('reveal', 'close');
+    modal.find('textarea').val('');
+    $("input[id='question_title']").val('');
+
+    $('#question_list').append(question);
+  }).fail(function() {
     console.log('error');
   });
 }

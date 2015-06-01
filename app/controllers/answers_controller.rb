@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.user_id = current_user.id
     @answer.save
-    return render :'answers/_answer', layout: false, locals: {answer: @answer}
+    return render partial: 'answer', layout: false, locals: {answer: @answer}
   end
 
   def edit

@@ -31,12 +31,25 @@
 
 <div id="questions">
   <h2>Questions</h2>
-  <button id="add_question_button">Add question</button>
+  <button class="add_question_button" data-reveal-id="new-question-modal">Ask a Question</button>
   <ul id="question_list" class="accordion" data-accordion>
     <% @questions.each do |question| %>
       <%= render "questions/question", question: question %>
     <% end %>
   </ul>
+</div>
+
+<div id="new-question-modal" class="<%= @hobby.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Submit your question</h2>
+  <p class="lead"><%= @hobby.name %></p>
+  <%= form_for @question do |f| %>
+    <%= f.hidden_field :hobby_id, value: @hobby.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.text_field :title %>
+    <%= text_area(:question, :body, cols: 20, rows: 5, placeholder: 'Write your question here...') %>
+    <%= f.submit %>
+  <% end %>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
 <div id="search-results">
