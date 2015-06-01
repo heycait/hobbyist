@@ -11,10 +11,12 @@ class AnswersController < ApplicationController
   end
 
   def create
+    # binding.pry
     answer = Answer.new(answer_params)
-    answer.question_id = params[:question_id]
+    answer.user_id = current_user.id
     # answer.user_id = params[:question_id]
     answer.save
+    render json: answer
   end
 
   def edit
@@ -72,7 +74,7 @@ class AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:body)
+    params.require(:answer).permit(:body, :question_id)
   end
 
   def find_answer

@@ -41,6 +41,7 @@ class HobbiesController < ApplicationController
         )
     @meetups = response['results']
     @questions = @hobby.questions
+    @answer = Answer.new
   end
 
   def update
