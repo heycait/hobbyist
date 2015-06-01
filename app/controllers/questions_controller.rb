@@ -62,7 +62,7 @@ class QuestionsController < ApplicationController
       end
     else
       if params[:vote] == 'upvote'
-        Vote.create(user_id: user.id, answer_id: @question.id, count: 1)
+        Vote.create(user_id: user.id, question_id: @question.id, count: 1)
         @question.vote_count += 1
       elsif params[:vote] == 'downvote'
         Vote.create(user_id: user.id, question_id: @question.id, count: -1)
