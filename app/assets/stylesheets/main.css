@@ -5,11 +5,16 @@
 
 h1, h3{
     font-family: Geoma, 'Syncopate';
+    font-weight: bold;
+    /*color: #38C898;*/
     /*font-family: 'Syncopate', sans-serif; }*/
 }
-h3, h6 {
+h3, h6{
     text-align: center;
 }
+/*.fb-login{
+    padding-left: 7%;
+}*/
 body {
     font-family: 'Droid Sans', sans-serif;
     background-image: url("fabric_of_squares_gray.png");
