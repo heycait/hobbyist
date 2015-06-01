@@ -3,9 +3,12 @@
     src: url('geoma_thin.otf');
 }
 
-h1{
+h1, h3{
     font-family: Geoma, 'Syncopate';
     /*font-family: 'Syncopate', sans-serif; }*/
+}
+h3, h6 {
+    text-align: center;
 }
 body {
     font-family: 'Droid Sans', sans-serif;
@@ -116,6 +119,7 @@ body {
 video#video {
     position: fixed;
     z-index: -1;
+    display: block;
     min-width: 100%;
     min-height: 100%;
     width: auto;
