@@ -12,11 +12,10 @@ class AnswersController < ApplicationController
 
   def create
     # binding.pry
-    answer = Answer.new(answer_params)
-    answer.user_id = current_user.id
-    # answer.user_id = params[:question_id]
-    answer.save
-    render json: answer
+    @answer = Answer.new(answer_params)
+    @answer.user_id = current_user.id
+    @answer.save
+    return render :'answers/_answer', layout: false, locals: {answer: @answer}
   end
 
   def edit

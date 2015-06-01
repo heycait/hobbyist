@@ -1,0 +1,30 @@
+<li class="accordion-navigation">
+  <a href="#panel<%= question.id %>"><%= question.title %>?</a>
+  <div id="panel<%= question.id %>" class="content">
+    <div class="question_body">
+      <%= question.body %>
+      <p>
+        <%= link_to "▲", question_path(question)+'/upvote', class: 'vote' %>
+        <span><%= question.vote_count %></span>
+        <%= link_to "▼", question_path(question)+'/downvote', class: 'vote' %>
+      </p>
+      <p>asked by <%= author(question) %> on <%= question.created_at.strftime("%m/%d/%Y") %></p>
+    </div>
+    <ul class="answer_list">
+    <% question.answers.each do |answer| %>
+      <%= render "answers/answer", answer: answer %>
+    <% end %>
+    <button class="add_answer_button" data-reveal-id="modal<%= question.id %>">Add answer</button>
+    </ul>
+    <div id="modal<%= question.id %>" class="<%= question.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+
+      <h2 id="modalTitle">Submit your answer</h2>
+      <p class="lead"><%= question.title %></p>
+      <%= form_for @answer do |f| %>
+        <%= text_area(:answer, :body, cols: 20, rows: 5, placeholder: 'Write your answer here...') %>
+        <%= f.submit %>
+      <% end %>
+      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    </div>
+  </div>
+</li>

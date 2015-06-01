@@ -36,18 +36,29 @@ function createAnswer () {
   event.preventDefault();
   console.log('createAnswer')
 
+  // var source = $('#new_answer_template').html();
+  // var template = Handlebars.compile(source);
+
   var question_id = this.parentElement.classList[0];
+  // debugger
   var body = $(this).find('textarea').val()
   var data = {answer: {body: body, question_id: question_id}};
-  $.ajax({
+
+  var response = $.ajax({
     url: '/answers',
     type: 'post',
     data: data
-  }).done(function(data) {
-    $('#modal'+data.question_id).foundation('reveal', 'close');
-    $('#modal'+data.question_id).find('textarea').val('');
-    $('#panel'+data.question_id).find('ul').append('<li>'+data.body+'</li>')
-  }).fail(function() {
+  });
+  response.done(function(answer) {
+    var question_id = $('.open')[0].classList[0];
+    var modal = $('#modal'+question_id);
+
+    modal.foundation('reveal', 'close');
+    modal.find('textarea').val('');
+
+    $('#panel'+question_id).find('ul').append(answer);
+  });
+  response.fail(function() {
     console.log('error');
   });
 }
