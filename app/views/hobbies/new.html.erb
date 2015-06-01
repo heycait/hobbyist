@@ -1,0 +1,18 @@
+<%= form_for @hobby do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+
+  <%= f.label :description %>
+  <%= f.text_area :description %><br />
+
+  <%= f.collection_select :category_id, @categories, :id, :name, include_blank: false %>
+
+  <div class="field">
+    <%= f.label :image %><br/>
+    <%= f.file_field :image_url %>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+
+
