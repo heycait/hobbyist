@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 20150601022954) do
   create_table "hobbies", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "image_url",   default: "http://ccdance.org/wp-content/uploads/2011/07/replace-me-960x540.jpg"
+    t.string   "image_url"
     t.integer  "category_id"
-    t.datetime "created_at",                                                                                   null: false
-    t.datetime "updated_at",                                                                                   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "creator_id"
   end
 

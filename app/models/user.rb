@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :votes
   has_and_belongs_to_many :hobbies
 
-  validates :username, :email, :image_url, presence: true
+  validates :username, :image_url, presence: true
   validates_uniqueness_of :email
 
   def self.from_omniauth(auth)
