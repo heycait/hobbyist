@@ -10,5 +10,6 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @hobbies = @category.hobbies
+    @hobby = Hobby.new
   end
 end
