@@ -1,26 +1,28 @@
 class HobbiesController < ApplicationController
   require 'imgur'
   before_action :find_hobby, only: [:show, :edit, :update, :destroy, :follow]
+  before_action :category_collection, only: [:new, :create]
 
   def index
     @hobbies = Hobby.order(name: :asc)
   end
 
   def create
-    user = current_user
-    hobby = Hobby.new(hobby_params)
+    @hobby = Hobby.new(hobby_params)
+    @hobby.creator_id = current_user.id
 
-    imgur_client = Imgur.new('891321eba378312')
-    image_path = params[:hobby][:image_url].tempfile.path
-    image = Imgur::LocalImage.new(image_path)
-    imgur_url = imgur_client.upload(image).link
+    if @hobby.save
+      imgur_client = Imgur.new('891321eba378312')
+      image_path = hobby_params[:image_url].tempfile.path
+      image = Imgur::LocalImage.new(image_path)
+      imgur_url = imgur_client.upload(image).link
 
-    hobby.name = params[:name]
-    hobby.description = params[:description]
-    hobby.image_url = imgur_url
-    hobby.creator_id = current_user.id
-
-    hobby.save
+      @hobby.image_url = imgur_url
+      @hobby.save
+      redirect_to hobby_path(@hobby.id)
+    else
+      render "new"
+    end
   end
 
   def new
@@ -69,11 +71,15 @@ class HobbiesController < ApplicationController
 
   private
   def hobby_params
-    params.require(:hobby).permit(:name, :description, :image_url, :creator_id)
+    params.require(:hobby).permit(:name, :description, :image_url, :creator_id, :category_id)
   end
 
   def find_hobby
     @hobby = Hobby.find(params[:id])
   end
 
+  def category_collection
+    @category = Category.all.sample
+    @categories = Category.order(name: :asc)
+  end
 end
