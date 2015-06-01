@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Hobbyist" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -23,11 +23,9 @@
       </ul>
 
       <section class="top-bar-section">
-        <!-- Right Nav Section -->
         <ul class="right">
           <% if current_user %>
             <li><img id="nav-pic" src="<%= current_user.image_url %>"></li>
-
             <li class="has-dropdown">
               <a href="#"><%= current_user.username %></a>
               <ul class="dropdown">
@@ -39,7 +37,6 @@
             <li><%= link_to "Log in", new_session_path(resource_name), class: "btn btn-primary" %></li>
           <% end %>
         </ul>
-
       </section>
     </nav>
 
