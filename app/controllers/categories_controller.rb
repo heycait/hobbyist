@@ -11,5 +11,6 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @hobbies = @category.hobbies
     @hobby = Hobby.new
+    @categories = Category.order(name: :asc)
   end
 end

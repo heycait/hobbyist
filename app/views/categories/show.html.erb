@@ -1,18 +1,7 @@
 <h1><%= @category.name %></h1>
 <div id="show_category">
   <% @hobbies.each do |hobby| %>
-    <div class="hobby tile hover">
-      <div class="front">
-        <div class="pad">
-          <%= link_to hobby.name, hobby %>
-        </div>
-      </div>
-      <div class="back">
-        <div class="pad">
-          <%= link_to hobby.name, hobby %>
-        </div>
-      </div>
-    </div>
+    <%= render "hobbies/hobby", hobby: hobby %>
   <% end %>
 </div>
 
@@ -35,10 +24,11 @@
       </ul>
     </div>
   <% end %>
-
+    <%= f.hidden_field :category_id, value: @category.id %>
+    <%= f.hidden_field :creator_id, value: current_user.id %>
     <%= f.text_field :name, placeholder: 'Name' %>
-    <%= f.text_area :description, placeholder: 'Description' %>
-
+    <%= f.text_area :description, placeholder: 'Description' %><br />
+    <%= f.collection_select :category_id, @categories, :id, :name, { include_blank: false, :selected => @category.id} %>
     <div class="field">
       <%= f.label :image %><br/>
       <%= f.file_field :image_url %>
