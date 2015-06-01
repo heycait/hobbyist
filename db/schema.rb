@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150531054214) do
+ActiveRecord::Schema.define(version: 20150601001708) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "body"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150531054214) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "creator_id"
   end
 
   add_index "hobbies", ["category_id"], name: "index_hobbies_on_category_id"
