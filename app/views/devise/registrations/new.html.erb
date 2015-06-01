@@ -51,15 +51,15 @@
 
   <div class="field input-wrapper">
     <% if @minimum_password_length %>
-    <label>Password <small><em>(<%= @minimum_password_length %> characters minimum)</em></small>
+    <label>Password <small> required</small>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", placeholder: :password, required: true %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "8 Characters Minimum", required: true %>
     </label>
     <small class="error">Password is required.</small>
   </div>
 
   <div class="field input-wrapper">
-    <label>Email <small>required</small>
+    <label>Confirm Password <!-- <small>required</small> -->
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", required: true %>
     </label>
     <small class="error">Password must match.</small>
