@@ -48,7 +48,7 @@ function createAnswer() {
 
 function createQuestion() {
   event.preventDefault();
-  debugger
+  // debugger
   var data = $(this).serialize();
 
   var response = $.ajax({
