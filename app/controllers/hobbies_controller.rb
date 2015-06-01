@@ -8,7 +8,6 @@ class HobbiesController < ApplicationController
   end
 
   def create
-    binding.pry
     @hobby = Hobby.new(hobby_params)
     # @hobby.creator_id = current_user.id
 

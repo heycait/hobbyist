@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks", registrations: 'registrations' }
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'categories#index'
+    end
+    unauthenticated :user do
+      root :to => 'devise/registrations#new', as: :unauthenticated_root
+    end
+  end
   resources :users
   resources :categories
   get "hobbies/:id/follow" => "hobbies#follow"
@@ -12,8 +20,6 @@ Rails.application.routes.draw do
   get '/answers/:id/:vote' => 'answers#vote'
 
 
-  root 'categories#index'
-  # root 'users#sign_up'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
