@@ -23,6 +23,7 @@ class HobbiesController < ApplicationController
 
   def new
     @hobby = Hobby.new
+    @category = Category.all.sample
     @categories = Category.order(name: :asc)
   end
 
