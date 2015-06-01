@@ -32,7 +32,13 @@ class HobbiesController < ApplicationController
   end
 
   def update
-    @hobby.update_attributes(hobby_params)
+    imgur_client = Imgur.new('891321eba378312')
+    image_path = params[:hobby][:image_url].tempfile.path
+    image = Imgur::LocalImage.new(image_path)
+    imgur_url = imgur_client.upload(image).link
+    @hobby.update_attribute(:image_url, imgur_url)
+    # Template error if I don't specify redirect
+    redirect_to(:back)
   end
 
   def destroy

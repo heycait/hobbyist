@@ -2,7 +2,16 @@
   <h3 id="hobby_title"><%= @hobby.name %></h3>
   <p><%= @hobby.description %></p>
   <img src="<%= @hobby.image_url %>">
-    <a class="btn btn-primary btn-lg follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></a>
+
+  <%= form_for @hobby do |f| %>
+    <div class="field">
+      <%= f.label 'Update Hobby Image' %><br/>
+      <%= f.file_field :image_url %>
+      <%= f.submit 'Update' %>
+    </div>
+  <% end %>
+
+  <a class="btn btn-primary btn-lg follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></a>
 </div>
 
 <div id="meetups">
