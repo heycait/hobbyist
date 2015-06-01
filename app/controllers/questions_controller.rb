@@ -7,11 +7,10 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.new(question_params)
-    question.hobby_id = params[:hobby_id]
-    # question.user_id = something
-    question.save
-    render json: question
+    @question = Question.new(question_params)
+    @question.save
+    @answer = Answer.new
+    return render partial: 'question', layout: false, locals: { question: @question, :@answer => @answer }
   end
 
   def new
@@ -83,7 +82,7 @@ class QuestionsController < ApplicationController
 
   private
   def question_params
-    params.require(:question).permit(:title, :body)
+    params.require(:question).permit(:title, :body, :hobby_id, :user_id)
   end
 
   def find_question

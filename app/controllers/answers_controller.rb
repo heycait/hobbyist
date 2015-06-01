@@ -11,10 +11,9 @@ class AnswersController < ApplicationController
   end
 
   def create
-    answer = Answer.new(answer_params)
-    answer.question_id = params[:question_id]
-    # answer.user_id = params[:question_id]
-    answer.save
+    @answer = Answer.new(answer_params)
+    @answer.save
+    return render partial: 'answer', layout: false, locals: {answer: @answer}
   end
 
   def edit
@@ -72,7 +71,7 @@ class AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:body)
+    params.require(:answer).permit(:body, :question_id, :user_id)
   end
 
   def find_answer
