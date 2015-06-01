@@ -1,6 +1,6 @@
 class HobbiesController < ApplicationController
   require 'imgur'
-  before_action :find_hobby, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :find_hobby, only: [:show, :edit, :update, :destroy, :follow]
 
   def index
     @hobbies = Hobby.order(name: :asc)
