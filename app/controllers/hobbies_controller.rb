@@ -1,5 +1,5 @@
 class HobbiesController < ApplicationController
-  before_action :find_hobby, only: [:show, :edit, :update, :destroy, :like, :unlike]
+  before_action :find_hobby, only: [:show, :edit, :update, :destroy, :follow]
 
   def index
     @hobbies = Hobby.order(name: :asc)
@@ -45,7 +45,7 @@ class HobbiesController < ApplicationController
     @hobby.destroy
   end
 
-  def like
+  def follow
     if current_user.hobbies.include?(@hobby)
       current_user.hobbies.delete(@hobby)
       render json: current_user.hobbies

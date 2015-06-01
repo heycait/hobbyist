@@ -2,6 +2,7 @@
   <h3 id="hobby_title"><%= @hobby.name %></h3>
   <p><%= @hobby.description %></p>
   <img src="<%= @hobby.image_url %>">
+
   <%= form_for @hobby do |f| %>
     <div class="field">
       <%= f.label 'Update Hobby Image' %><br/>
@@ -9,7 +10,8 @@
       <%= f.submit 'Update' %>
     </div>
   <% end %>
-    <a class="btn btn-primary btn-lg like" href="/hobbies/<%= @hobby.id %>/like" role="button"><%= like_unlike(@hobby) %></a>
+
+  <a class="btn btn-primary btn-lg follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></a>
 </div>
 
 <div id="meetups">
