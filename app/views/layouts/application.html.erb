@@ -26,8 +26,9 @@
         <!-- Right Nav Section -->
         <ul class="right">
           <% if current_user %>
+            <li><img id="nav-pic" src="<%= current_user.image_url %>"></li>
+
             <li class="has-dropdown">
-              <!-- <img src="<%= current_user.image_url %>"> -->
               <a href="#"><%= current_user.username %></a>
               <ul class="dropdown">
                 <li><%= link_to "Profile", current_user %></li>
