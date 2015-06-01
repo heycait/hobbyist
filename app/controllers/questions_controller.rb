@@ -7,10 +7,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @question = Question.new(question_params)
-    # question.hobby_id = params[:hobby_id]
-    # question.user_id = something
     @question.save
     @answer = Answer.new
     return render partial: 'question', layout: false, locals: { question: @question, :@answer => @answer }

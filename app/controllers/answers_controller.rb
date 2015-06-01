@@ -11,9 +11,7 @@ class AnswersController < ApplicationController
   end
 
   def create
-    # binding.pry
     @answer = Answer.new(answer_params)
-    @answer.user_id = current_user.id
     @answer.save
     return render partial: 'answer', layout: false, locals: {answer: @answer}
   end
@@ -73,7 +71,7 @@ class AnswersController < ApplicationController
 
   private
   def answer_params
-    params.require(:answer).permit(:body, :question_id)
+    params.require(:answer).permit(:body, :question_id, :user_id)
   end
 
   def find_answer

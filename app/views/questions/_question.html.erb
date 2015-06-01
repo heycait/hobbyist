@@ -21,6 +21,8 @@
       <h2 id="modalTitle">Submit your answer</h2>
       <p class="lead"><%= question.title %></p>
       <%= form_for @answer do |f| %>
+        <%= f.hidden_field :question_id, value: question.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
         <%= text_area(:answer, :body, cols: 20, rows: 5, placeholder: 'Write your answer here...') %>
         <%= f.submit %>
       <% end %>
