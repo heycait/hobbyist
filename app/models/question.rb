@@ -2,6 +2,7 @@ class Question < ActiveRecord::Base
   belongs_to :hobby
   belongs_to :user
   has_many :answers
+  has_many :votes
 
   has_and_belongs_to_many :hashtags
 
