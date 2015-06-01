@@ -12,7 +12,7 @@
     <% end %>
   <% end %>
 
-  <a class="btn btn-primary btn-lg follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></a>
+  <button class="follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></button>
 </div>
 
 <div id="meetups">
@@ -107,7 +107,7 @@
 </section> -->
 
 
-<div id="questions" class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<!-- <div id="questions" class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <h2>Questions</h2>
   <button id="add_question_button">Add question</button>
   <% @questions.each do |question| %>
@@ -142,11 +142,46 @@
             </li>
           <% end %>
         </ul>
-        <button class="add_answer_button btn btn-default">Add answer</button>
+        <button class="add_answer_button btn btn-default" data-reveal-id="new-answer">Add answer</button>
       </div>
     </div>
   </div>
   <% end %>
+</div> -->
+<div id="questions">
+  <h2>Questions</h2>
+  <button id="add_question_button">Add question</button>
+  <ul class="accordion" data-accordion>
+    <% @questions.each do |question| %>
+    <li class="accordion-navigation">
+      <a href="#panel<%= question.id %>"><%= question.title %>?</a>
+      <div id="panel<%= question.id %>" class="content active">
+        <div class="question_body">
+          <%= question.body %>
+          <p>
+            <%= link_to raw('<span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>'), question_path(question)+'/upvote', class: 'vote' %>
+            <span><%= question.vote_count %></span>
+            <%= link_to raw('<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>'), question_path(question)+'/downvote', class: 'vote' %>
+          </p>
+          <p>asked by <%= author(question) %> on <%= question.created_at.strftime("%m/%d/%Y") %></p>
+        </div>
+        <ul class="answer_list">
+        <% question.answers.each do |answer| %>
+          <li>
+            <%= answer.body %>
+            posted by <%= author(answer) %>
+            <%= link_to "▲", answer_path(answer)+'/upvote', class: 'vote' %>
+            <span><%= answer.vote_count %></span>
+            <%= link_to "▼", answer_path(answer)+'/downvote', class: 'vote' %>
+          </li>
+        <% end %>
+        </ul>
+        <button class="add_answer_button" data-reveal-id="new-answer">Add answer</button>
+      </div>
+        <% end %>
+    </li>
+
+  </ul>
 </div>
 
 <div id="search-results">
@@ -160,4 +195,13 @@
       <li><%= link_to user.username, user %></li>
     <% end %>
   </ul>
+</div>
+
+
+<div id="new-answer" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+
+  <h2 id="modalTitle">Submit your answer.</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
