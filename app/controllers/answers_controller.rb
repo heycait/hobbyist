@@ -40,11 +40,29 @@ class AnswersController < ApplicationController
   end
 
   def vote
-    if params[:vote] == 'upvote'
-      @answer.vote_count += 1
-    elsif params[:vote] == 'downvote'
-      @answer.vote_count -= 1
+    user = current_user
+    @vote = Vote.where(user_id: user.id, answer_id: @answer.id).first
+
+    if @vote
+      if params[:vote] == 'upvote'
+        @answer.vote_count += 1 if @vote.count < 1
+        @vote.count += 1 if @vote.count < 1
+        @vote.save
+      elsif params[:vote] == 'downvote'
+        @answer.vote_count -= 1 if @vote.count > -1
+        @vote.count -= 1 if @vote.count > -1
+        @vote.save
+      end
+    else
+      if params[:vote] == 'upvote'
+        Vote.create(user_id: user.id, answer_id: @answer.id, count: 1)
+        @answer.vote_count += 1
+      elsif params[:vote] == 'downvote'
+        Vote.create(user_id: user.id, answer_id: @answer.id, count: -1)
+        @answer.vote_count -= 1
+      end
     end
+
     if @answer.save
       render json: @answer.vote_count
     else
