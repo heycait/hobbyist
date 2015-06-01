@@ -8,8 +8,9 @@ class HobbiesController < ApplicationController
   end
 
   def create
+    binding.pry
     @hobby = Hobby.new(hobby_params)
-    @hobby.creator_id = current_user.id
+    # @hobby.creator_id = current_user.id
 
     if @hobby.save
       imgur_client = Imgur.new('891321eba378312')
@@ -20,13 +21,15 @@ class HobbiesController < ApplicationController
       @hobby.image_url = imgur_url
       @hobby.save
       redirect_to hobby_path(@hobby.id)
+      # return render partial: 'hobby', layout: false, locals: { hobby: @hobby }
     else
-      render "new"
+      render "show"
     end
   end
 
   def new
     @hobby = Hobby.new
+    @categories = Category.order(name: :asc)
   end
 
   def edit

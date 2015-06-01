@@ -33,7 +33,7 @@
   <h2>Questions</h2>
   <button class="add_question_button" data-reveal-id="new-question-modal">Ask a Question</button>
   <ul id="question_list" class="accordion" data-accordion>
-    <% @questions.each do |question| %>
+    <% @hobby.questions.each do |question| %>
       <%= render "questions/question", question: question %>
     <% end %>
   </ul>
@@ -64,5 +64,7 @@
     <% end %>
   </ul>
 </div>
+
+
 
 
