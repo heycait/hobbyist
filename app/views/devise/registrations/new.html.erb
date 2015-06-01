@@ -32,31 +32,43 @@
 
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {'data-abide' => ''}) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.text_field :username, autofocus: true, placeholder: :username %>
+  <div class="field input-wrapper">
+    <label>Username <small>required</small>
+      <%= f.text_field :username, autofocus: true, placeholder: :username, required: true %>
+    </label>
+    <small class="error">Username is required.</small>
   </div>
 
-  <div class="field">
-    <%= f.email_field :email, autofocus: true, placeholder: :email %>
+  <div class="field input-wrapper">
+    <label>Email <small>required</small>
+      <%= f.email_field :email, autofocus: true, placeholder: :email, required: true %>
+    </label>
+    <small class="error">An email address is required.</small>
   </div>
 
-  <div class="field">
+  <div class="field input-wrapper">
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <label>Password <small><em>(<%= @minimum_password_length %> characters minimum)</em></small>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "off", placeholder: :password %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: :password, required: true %>
+    </label>
+    <small class="error">Password is required.</small>
   </div>
 
-  <div class="field">
-    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password" %>
+  <div class="field input-wrapper">
+    <label>Email <small>required</small>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", required: true %>
+    </label>
+    <small class="error">Password must match.</small>
   </div>
 
-  <div class="field">
-    <%= f.label :image_url %><br/>
-    <%= f.file_field :image_url %>
+  <div class="field input-wrapper">
+    <label>Image <small>optional</small>
+      <%= f.file_field :image_url %>
+    </label>
   </div>
 
   <div class="actions">
