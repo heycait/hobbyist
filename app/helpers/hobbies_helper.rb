@@ -3,7 +3,7 @@ module HobbiesHelper
     Time.at(time.to_s.slice(0, 10).to_i).strftime("%m/%d/%Y")
   end
 
-  def like_unlike(hobby)
-    current_user.hobbies.include?(hobby) ? "Unlike" : "Like"
+  def follow_unfollow(hobby)
+    current_user.hobbies.include?(hobby) ? "Unfollow" : "Follow"
   end
 end

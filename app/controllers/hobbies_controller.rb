@@ -57,7 +57,7 @@ class HobbiesController < ApplicationController
     @hobby.destroy
   end
 
-  def like
+  def follow
     if current_user.hobbies.include?(@hobby)
       current_user.hobbies.delete(@hobby)
       render json: current_user.hobbies

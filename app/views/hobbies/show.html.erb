@@ -11,7 +11,8 @@
       </div>
     <% end %>
   <% end %>
-    <a class="btn btn-primary btn-lg like" href="/hobbies/<%= @hobby.id %>/like" role="button"><%= like_unlike(@hobby) %></a>
+
+  <a class="btn btn-primary btn-lg follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></a>
 </div>
 
 <div id="meetups">

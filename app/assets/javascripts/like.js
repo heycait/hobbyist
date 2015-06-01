@@ -1,21 +1,23 @@
 $(document).on('page:change', function() {
-  bindLikeEvents();
+  bindFollowEvents();
 });
 
-function bindLikeEvents() {
-  $('body').on('click', '.like', likeHobby)
+function bindFollowEvents() {
+  $('body').on('click', '.follow', followHobby)
 }
 
-function likeHobby() {
+function followHobby() {
   event.preventDefault();
+
   var link = $(this);
   var url = $(this).attr('href');
+
   $.ajax({
     url: url,
     type: 'get'
   }).done(function(data) {
     $(link).text(function(i, text){
-      return text === "Like" ? "Unlike" : "Like";
+      return text === "Follow" ? "Unfollow" : "Follow";
     })
   }).fail(function() {
       console.log('error');
