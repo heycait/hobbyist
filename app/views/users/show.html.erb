@@ -9,15 +9,25 @@
           <img class='prof-image th' src="<%= @user.image_url %>">
         </div>
         <a href="#">
+          <div class="invisible panel radius">
+
+          </div>
+        </a>
           <div class="panel radius">
             <h6>
               You have
               <%= ' 0 hobbies' if @user.hobbies.size < 1 %>
               <%= ' 1 hobby' if @user.hobbies.size == 1 %>
               <%= "#{@user.hobbies.size} hobbies" if @user.hobbies.size > 1 %>
-            </h6>
+            </h6><hr>
+            <ul class="user-hobby-list">
+              <% @user.hobbies.each do |hobby| %>
+              <div class="hobby-list-insideDiv">
+                <li><%= hobby.name %></li>
+              </div>
+              <% end %>
+            </ul>
           </div>
-        </a>
       </div>
 
       <div class="large-8 columns">
@@ -35,9 +45,6 @@
             <div class="small-2 medium-2">
               <a href="/hobbies/<%=hobby.id%>">
                 <img class="profile-hobbies" src="<%=hobby.image_url%>"/>
-                <div class="panel profile-hobby-name">
-                  <p><%=hobby.name%></p>
-                </div>
               </a>
             </div>
             <% end %>

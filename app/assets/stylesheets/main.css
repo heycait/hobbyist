@@ -314,3 +314,18 @@ li a:hover #plus-image {
 footer {
     text-align: center;
 }
+
+.user-hobby-list {
+    list-style-type: none;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.user-hobby-list li {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.hobby-list-insideDiv {
+
+}
