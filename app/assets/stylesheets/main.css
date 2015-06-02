@@ -4,11 +4,27 @@
     font-family: Geoma;
     src: url('geoma_thin.otf');
 }
-
-.top-bar, .nav-pic, .right {
-    background-color: #38C898;
+/*nave bar coloring */
+.contain-to-grid,
+.top-bar,
+.title-area,
+.top-bar-section ul li,
+.top-bar-section li:not(.has-form) a:not(.button),
+.top-bar-section .dropdown li:not(.has-form) a:not(.button),
+.top-bar-section .has-dropdown > a:after {
+  background: #38C898;
 }
-li .has-dropdown{
+
+/* Changes background color of top-bar menu items  */
+.top-bar-section #menu-primary a,
+.top-bar-section #menu-primary a:hover {
+  background-color: #38C898 !important;
+  color: red;
+  font-weight: 700;
+}
+
+/*---------*/
+*/li .has-dropdown{
     background-color: #38C898;
 }
 
