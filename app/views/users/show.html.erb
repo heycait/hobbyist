@@ -21,9 +21,11 @@
               <%= "#{@user.hobbies.size} hobbies" if @user.hobbies.size > 1 %>
             </h6><hr>
             <ul class="user-hobby-list">
-              <% @user.hobbies.each do |hobby| %>
+              <% @user.hobbies.sort_by{ |h| h.name }.each do |hobby| %>
               <div class="hobby-list-insideDiv">
-                <li><%= hobby.name %></li>
+                <a href="/hobbies/<%=hobby.id%>">
+                  <li><%= hobby.name %></li><p></p>
+                </a>
               </div>
               <% end %>
             </ul>
