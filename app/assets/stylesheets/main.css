@@ -288,3 +288,7 @@ li a:hover #plus-image {
 #question_list {
     word-wrap: break-word;
 }
+
+footer {
+    text-align: center;
+}
