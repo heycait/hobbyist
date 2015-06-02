@@ -270,3 +270,21 @@ li a:hover #plus-image {
     background-color: transparent;
     border: none;
 }
+
+.content {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.add_answer_button {
+    float: left;
+}
+
+.answerdiv {
+    border-radius: 5px;
+    word-wrap: break-word;
+}
+
+#question_list {
+    word-wrap: break-word;
+}

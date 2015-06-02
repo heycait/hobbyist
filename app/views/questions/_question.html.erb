@@ -14,9 +14,11 @@
       <p>- <%= author(question) %></p>
     </div>
     <ul class="answer_list">
+    <hr>
     <% question.answers.each do |answer| %>
       <%= render "answers/answer", answer: answer %>
     <% end %>
+    <p></p>
     <button class="add_answer_button" data-reveal-id="modal<%= question.id %>">Add answer</button>
     </ul>
     <div id="modal<%= question.id %>" class="<%= question.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
