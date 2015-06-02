@@ -19,6 +19,7 @@ class HobbiesController < ApplicationController
 
       @hobby.image_url = imgur_url
       @hobby.save
+      @question = Question.new
       redirect_to hobby_path(@hobby.id)
       # return render partial: 'hobby', layout: false, locals: { hobby: @hobby }
     else
