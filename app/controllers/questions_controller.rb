@@ -80,6 +80,18 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def search
+    phrase = params[:phrase]
+    @questions = Question.where(hobby_id: params[:hobby_id])
+
+    unless phrase == 'all'
+      @questions = @questions.where("lower(title) LIKE ? OR lower(body) LIKE ?", "%#{phrase}%", "%#{phrase}%")
+    end
+    @answer = Answer.new
+
+    return render :'questions/_all_questions', layout: false
+  end
+
   private
   def question_params
     params.require(:question).permit(:title, :body, :hobby_id, :user_id)

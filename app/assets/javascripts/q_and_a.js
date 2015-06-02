@@ -6,6 +6,7 @@ function bindQuestionEvents() {
   $('body').on('click', 'a.vote', vote)
   $('.new_answer').on('submit', createAnswer);
   $('.new_question').on('submit', createQuestion);
+  $('#search').on('keyup', search);
 };
 
 function vote(){
@@ -51,7 +52,7 @@ function createQuestion() {
   // debugger
   var data = $(this).serialize();
 
-  var response = $.ajax({
+  $.ajax({
     url: '/questions',
     type: 'post',
     data: data
@@ -68,4 +69,26 @@ function createQuestion() {
   }).fail(function() {
     console.log('error');
   });
+}
+
+function search(){
+  event.preventDefault();
+  var phrase = $(this).val().toLowerCase();
+  var hobby_id = $(this).attr('class');
+
+  if (!phrase){
+    phrase = "all";
+  }
+  var data = { phrase: phrase, hobby_id: hobby_id }
+
+  $.ajax({
+    url: '/questions/search',
+    type: 'get',
+    data: data
+  }).done(function(payload) {
+    $('#question_list').html($(payload))
+  }).fail(function() {
+    console.log('error');
+  });
+
 }
