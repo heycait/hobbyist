@@ -219,4 +219,9 @@ li a img {
     text-align: center;
 }
 
+#cat-index-header {
+    height: 10em;
+    background-image: url('eiffel-coffee.jpg');
+}
+
 
