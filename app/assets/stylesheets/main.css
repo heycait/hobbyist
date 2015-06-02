@@ -127,3 +127,42 @@ video#video {
     width: auto;
     height: auto;
 }
+
+.slider{
+    height: 15em;
+    width: 50%;
+    margin: 1em auto;
+    text-align:center;
+    background-color: white;
+}
+
+.slider div{
+    /*margin: auto;*/
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.slider div img {
+    border: solid white;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.category-name {
+    text-align: center;
+    margin-left: 20% auto;
+    position: fixed;
+}
+
+h3 {
+    text-align: center;
+    position: relative;
+}
+
+.slick-prev:before, .slick-next:before {
+    color:black !important;
+    font-weight: bolder;
+}
+
