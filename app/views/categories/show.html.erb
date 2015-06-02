@@ -39,7 +39,7 @@
 
 
 
-<button class="add_question_button" data-reveal-id="new-hobby-modal">Create New Hobby</button>
+<button id="add_hobby_button">Create New Hobby</button>
 
 <div id="new-hobby-modal" class="<%= @category.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">Create your hobby</h2>
@@ -60,8 +60,7 @@
     <%= f.hidden_field :category_id, value: @category.id %>
     <%= f.hidden_field :creator_id, value: current_user.id %>
     <%= f.text_field :name, placeholder: 'Name' %>
-    <%= f.text_area :description, placeholder: 'Description' %><br />
-    <%= f.collection_select :category_id, @categories, :id, :name, { include_blank: false, :selected => @category.id} %>
+    <%= f.text_area :description, placeholder: 'Description' %>
     <div class="field">
       <%= f.label :image %><br/>
       <%= f.file_field :image_url %>

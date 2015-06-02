@@ -24,7 +24,7 @@
 </div>
 
 <div id="meetups">
-  <% if @meetups.size > 0 %>
+  <% if @meetups && !@meetups.empty? %>
     <h4>Upcoming Meetup Events</h4>
     <% @meetups.each do |meetup| %>
       <p>
