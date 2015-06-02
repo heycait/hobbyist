@@ -189,8 +189,19 @@ li a img:hover {
     opacity: 0.2;
 }
 
+li a p {
+    opacity: 0;
+    transition: 1s;
+}
 
+li a:hover p {
+    opacity: 0.5;
+}
 
+li a {
+    position: relative;
+    display: inline-block;
+}
 
 
 

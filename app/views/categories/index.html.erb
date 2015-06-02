@@ -214,11 +214,16 @@
 
       <% @categories.each do |category| %>
          <li>
-          <div class="cat-image-div">
-            <a href="/categories/<%= category.id %>">
-            <img src="<%= category.image_url %>"></a>
-            <p style="display: none">This is a test</p>
+           <div class="panel">
+             <h5><%=category.name%></h5>
+                <a href="/categories/<%= category.id %>">
+              <img src="<%= category.image_url %>">
+            </a>
           </div>
+
+
+
+
         </li>
       <% end %>
 
