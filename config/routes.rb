@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :categories
   get "hobbies/:id/follow" => "hobbies#follow"
   resources :hobbies
+  get '/questions/search' => 'questions#search'
   resources :questions
   resources :answers
 
