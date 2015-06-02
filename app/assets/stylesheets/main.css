@@ -3,9 +3,11 @@
     src: url('geoma_thin.otf');
 }
 
+
 h1, h3{
     font-family: Geoma, 'Syncopate';
     font-weight: bold;
+    text-align: center;
     /*color: #38C898;*/
     /*font-family: 'Syncopate', sans-serif; }*/
 }

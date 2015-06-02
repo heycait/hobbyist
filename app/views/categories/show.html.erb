@@ -1,9 +1,45 @@
 <h1><%= @category.name %></h1>
-<div id="show_category">
-  <% @hobbies.each do |hobby| %>
-    <%= render "hobbies/hobby", hobby: hobby %>
-  <% end %>
+
+
+
+
+<div class="row">
+<hr>
+  <div class="large-12 columns" id="show_category">
+    <ul class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+
+      <% @hobbies.each do |hobby| %>
+         <li>
+            <a href="/hobbies/<%= hobby.id %>">
+            <img src="<%= hobby.image_url %>">
+             <div class="panel">
+                <h5><%= hobby.name %></h5>
+             </div>
+          </a>
+
+        </li>
+      <% end %>
+
+    </ul>
+  </div>
 </div>
+
+
+<footer class="row">
+    <div class="large-12 columns">
+      <hr/>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>©2015 Hobbyist</p>
+        </div>
+
+      </div>
+    </div>
+</footer>
+
+
+
+
 
 <button class="add_question_button" data-reveal-id="new-hobby-modal">Create New Hobby</button>
 
