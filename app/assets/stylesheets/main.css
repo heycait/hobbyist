@@ -203,6 +203,14 @@ li a {
     display: inline-block;
 }
 
+li a img {
+    height: 10em;
+    width: 15em;
+}
 
+.panel {
+    background-color: white;
+    text-align: center;
+}
 
 

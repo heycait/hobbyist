@@ -1,4 +1,4 @@
-<h1>Categories</h1>
+<h1 style="text-align: center">Categories</h1>
 <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
 <br><br>
 
@@ -214,15 +214,12 @@
 
       <% @categories.each do |category| %>
          <li>
-           <div class="panel">
-             <h5><%=category.name%></h5>
-                <a href="/categories/<%= category.id %>">
-              <img src="<%= category.image_url %>">
-            </a>
-          </div>
-
-
-
+            <a href="/categories/<%= category.id %>">
+            <img src="<%= category.image_url %>">
+             <div class="panel">
+                <h5><%= category.name %></h5>
+             </div>
+          </a>
 
         </li>
       <% end %>
@@ -237,7 +234,7 @@
       <hr/>
       <div class="row">
         <div class="large-6 columns">
-          <p>© Copyright Hobbyist 2015</p>
+          <p>©2015 Hobbyist</p>
         </div>
 
       </div>
