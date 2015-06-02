@@ -1,13 +1,28 @@
 <h1><%= @user.username %></h1>
 
 <img src="<%= @user.image_url %>">
-
 <h2>Following:</h2>
-<ul>
+<% @categories.each do |category| %>
+  <div id="category-name">
+    <h3><%=category.name%></h3>
+  </div>
+  <div class="slider">
   <% @user.hobbies.each do |hobby| %>
-    <li><%= link_to hobby.name, hobby %></li>
+    <% if hobby.category.name == category.name %>
+      <div class="small-2 medium-2">
+        <a href="/hobbies/<%=hobby.id%>">
+          <img src="<%=hobby.image_url%>"/>
+        </a>
+      </div>
+    <% end %>
   <% end %>
-</ul>
+  </div>
+<% end %>
+
+
+
+
+
 
 <% if user_signed_in? %>
   <li>

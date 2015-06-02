@@ -72,6 +72,9 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foundation-rails (5.5.2.1)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
@@ -79,6 +82,7 @@ GEM
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     hashie (2.1.2)
+    hirb (0.7.3)
     httparty (0.13.5)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -210,8 +214,10 @@ DEPENDENCIES
   debugger
   devise
   faker
+  foundation-icons-sass-rails
   foundation-rails
   geocoder
+  hirb
   httparty
   imgur-api
   jbuilder (~> 2.0)
