@@ -12,9 +12,9 @@
     <% end %>
   <% end %>
 
-  <button class="follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></button>
+  <button id="follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></button>
 
-  <button id="followers_button" href="/hobbies/<%= @hobby.id %>/followers" data-reveal-id="followers-modal"><%= @hobby.users.count %>
+  <button id="followers_button" href="/hobbies/<%= @hobby.id %>/followers"><%= @hobby.users.count %>
   <% if @hobby.users.count == 1 %>
     Follower
   <% else %>
@@ -42,7 +42,7 @@
 
 <div id="questions">
   <h2>Questions</h2>
-  <button class="add_question_button" data-reveal-id="new-question-modal">Ask a Question</button>
+  <button id="add_question_button">Ask a Question</button>
   <button id="popular_sort" class="<%= @hobby.id %>" href="/questions/sort/popular">Sort by Popular</button>
   <button id="recent_sort" class="<%= @hobby.id %>" href="/questions/sort/recent">Sort by Recent</button>
   <input type="text" id="search" class="<%= @hobby.id %>" placeholder="search questions">
