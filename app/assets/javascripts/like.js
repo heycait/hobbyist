@@ -3,7 +3,8 @@ $(document).on('page:change', function() {
 });
 
 function bindFollowEvents() {
-  $('body').on('click', '.follow', followHobby)
+  $('body').on('click', '.follow', followHobby);
+  $('#followers_button').on('click', showFollowers);
 }
 
 function followHobby() {
@@ -15,11 +16,37 @@ function followHobby() {
   $.ajax({
     url: url,
     type: 'get'
-  }).done(function(data) {
+  }).done(function(count) {
     $(link).text(function(i, text){
       return text === "Follow" ? "Unfollow" : "Follow";
-    })
+    });
+
+    var text;
+    if(count == 1){
+      $('#followers_button').text(count+' Follower');
+      $('#followers-modal').find('#modalTitle').text('Follower')
+    }
+    else{
+      $('#followers_button').text(count+' Followers');
+      $('#followers-modal').find('#modalTitle').text('Followers')
+    }
   }).fail(function() {
       console.log('error');
   });
 }
+
+function showFollowers() {
+  event.preventDefault();
+
+  var url = $(this).attr('href');
+
+  $.ajax({
+    url: url,
+    type: 'get'
+  }).done(function(followers) {
+    $('#following_users').html(followers);
+  }).fail(function() {
+      console.log('error');
+  });
+}
+

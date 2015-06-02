@@ -13,6 +13,14 @@
   <% end %>
 
   <button class="follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></button>
+
+  <button id="followers_button" href="/hobbies/<%= @hobby.id %>/followers" data-reveal-id="followers-modal"><%= @hobby.users.count %>
+  <% if @hobby.users.count == 1 %>
+    Follower
+  <% else %>
+    Followers
+  <% end %>
+</button>
 </div>
 
 <div id="meetups">
@@ -57,13 +65,15 @@
   <iframe width="320" height="215" src="" allowfullscreen id="iframe"></iframe>'
 </div>
 
-<div>
-  <h4>Followers</h4>
+
+
+<div id="followers-modal" class="<%= @hobby.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Followers</h2>
+  <p class="lead"><%= @hobby.name %></p>
   <ul id="following_users">
-    <% @hobby.users.each do |user| %>
-      <li><%= link_to user.username, user %></li>
-    <% end %>
+    <%= render "hobbies/followers", followers: @hobby.users %>
   </ul>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
 
