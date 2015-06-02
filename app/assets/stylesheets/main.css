@@ -219,4 +219,25 @@ li a img {
     text-align: center;
 }
 
+/*div#plus {
+    height: 10em;
+    width: 15em;
+}*/
 
+#plus-image {
+    height: 5em;
+    width: 5em;
+    opacity: 0.2;
+    transition: .5s;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+li a:hover #plus-image {
+    opacity: 1;
+}
+
+#add-div {
+    background-color: transparent;
+    border: none;
+}

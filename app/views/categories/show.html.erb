@@ -14,12 +14,22 @@
                 <h5><%= hobby.name %></h5>
              </div>
           </a>
-
         </li>
       <% end %>
 
+      <li>
+        <!-- <div class="panel" id="add-div"> -->
+          <a href="#">
+          <!-- <button class="add_question_button" data-reveal-id="new-hobby-modal">Create New Hobby</button> -->
+          <img src="http://www.veryicon.com/icon/png/System/Icons8%20Metro%20Style/Very%20Basic%20Plus.png" class="add_question_button" data-reveal-id="new-hobby-modal" id="plus-image">
+
+        <!-- </div> -->
+
+        </a>
+      </li>
     </ul>
   </div>
+
 </div>
 
 
@@ -35,11 +45,6 @@
     </div>
 </footer>
 
-
-
-
-
-<button class="add_question_button" data-reveal-id="new-hobby-modal">Create New Hobby</button>
 
 <div id="new-hobby-modal" class="<%= @category.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">Create your hobby</h2>
