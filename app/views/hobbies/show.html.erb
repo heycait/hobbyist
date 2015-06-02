@@ -43,6 +43,8 @@
 <div id="questions">
   <h2>Questions</h2>
   <button class="add_question_button" data-reveal-id="new-question-modal">Ask a Question</button>
+  <button id="popular_sort" class="<%= @hobby.id %>" href="/questions/sort/popular">Sort by Popular</button>
+  <button id="recent_sort" class="<%= @hobby.id %>" href="/questions/sort/recent">Sort by Recent</button>
   <input type="text" id="search" class="<%= @hobby.id %>" placeholder="search questions">
   <ul id="question_list" class="accordion" data-accordion>
     <% @hobby.questions.each do |question| %>

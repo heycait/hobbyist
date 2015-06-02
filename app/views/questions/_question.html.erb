@@ -1,14 +1,17 @@
 <li class="accordion-navigation">
-  <a href="#panel<%= question.id %>"><%= question.title %>?</a>
+  <a href="#panel<%= question.id %>">
+    <%= question.title %>
+    <p class="question_header_right">
+      <span><%= question.created_at.strftime("%m/%d/%Y") %></span>
+      <%= link_to "▲", question_path(question)+'/upvote', class: 'vote' %>
+      <span><%= question.vote_count %></span>
+      <%= link_to "▼", question_path(question)+'/downvote', class: 'vote' %>
+    </p>
+  </a>
   <div id="panel<%= question.id %>" class="content">
     <div class="question_body">
       <%= question.body %>
-      <p>
-        <%= link_to "▲", question_path(question)+'/upvote', class: 'vote' %>
-        <span><%= question.vote_count %></span>
-        <%= link_to "▼", question_path(question)+'/downvote', class: 'vote' %>
-      </p>
-      <p>asked by <%= author(question) %> on <%= question.created_at.strftime("%m/%d/%Y") %></p>
+      <p>- <%= author(question) %></p>
     </div>
     <ul class="answer_list">
     <% question.answers.each do |answer| %>
