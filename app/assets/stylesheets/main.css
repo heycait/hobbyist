@@ -1,6 +1,31 @@
+@import "compass/css3";
+
 @font-face {
     font-family: Geoma;
     src: url('geoma_thin.otf');
+}
+/*nave bar coloring */
+.contain-to-grid,
+.top-bar,
+.title-area,
+.top-bar-section ul li,
+.top-bar-section li:not(.has-form) a:not(.button),
+.top-bar-section .dropdown li:not(.has-form) a:not(.button),
+.top-bar-section .has-dropdown > a:after {
+  background: #38C898;
+}
+
+/* Changes background color of top-bar menu items  */
+.top-bar-section #menu-primary a,
+.top-bar-section #menu-primary a:hover {
+  background-color: #38C898 !important;
+  color: red;
+  font-weight: 700;
+}
+
+/*---------*/
+*/li .has-dropdown{
+    background-color: #38C898;
 }
 
 
@@ -25,8 +50,12 @@ body {
     background-size: 100%, 100%;
 }
 
-.button {
-background-color: #38C898;
+.button{
+    background-color: #38C898;
+}
+
+.button:hover{
+     background-color: #299470;
 }
 
 #nav-pic {
@@ -62,7 +91,6 @@ background-color: #38C898;
 }
 
 /*homepage login*/
-@import "compass/css3";
 
 body {
   background: #F0F0F3;
@@ -219,10 +247,11 @@ li a img {
     text-align: center;
 }
 
-/*div#plus {
+
+#cat-index-header {
     height: 10em;
-    width: 15em;
-}*/
+    background-image: url('eiffel-coffee.jpg');
+}
 
 #plus-image {
     height: 5em;
