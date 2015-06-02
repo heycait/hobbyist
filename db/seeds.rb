@@ -6,26 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# categories = {
-# 'Arts & Crafts' => [['Painting', 'Sculpting', 'Sewing', 'Pottery', 'Basket Making'],'1', 'http://www.karaspartyideas.com/wp-content/uploads/2013/05/IMG_4000_600x400.jpg'],
-# 'Cars & Motorcycles' => [['Vintage Vehicles', 'Maintenance', 'Racing', 'Car Shows'],'3', 'http://www.cfrrinkens.com/files/cfr/graphic/content/services/cfr-rinkens-service-car-and-bike-shipping.jpg'],
-# 'Education & Learning' => [['Teaching', 'Study Groups', 'SAT Prep'],'6', 'http://www.ctacusa.com/wp-content/uploads/2013/11/education-slos.jpg'],
-# 'Fashion & Beauty' => [['Makeup', 'Winter Clothes', 'Shoes', 'Modeling'],'8', 'http://imagelib4.circleofmoms.com/live_photo16806627'],
-# 'Food & Drink' => [['Cooking', 'Wine', 'Beer', 'Pie Eating', 'Food Trucks'],'10', 'http://www.localbelle.com/wp-content/uploads/2013/02/food-and-drink.jpg'],
-# 'Games' => [['Sardines', 'Taboo', 'Chess', 'Monopoly', 'Sudoku'],'11', 'http://jamiewhyte.co.uk/site/wp-content/uploads/2012/10/games-logo1-e1350398796647.jpg'],
-# 'Health & Wellbeing' => [['Suppliments', 'Meditation', 'Acupuncture', 'Dieting', 'Sleep'],'14', 'http://www.stow.ac.uk/media/istock_000003222836xsmall.jpg'],
-# 'Language & Ethnic Identity' => [['French', 'Spanish'],'16', 'http://www.inc.com/uploaded_files/image/create-a-unified-company-culture-pop_7524.jpg'],
-# 'Music' => [['Composing', 'Performing', 'Jam Bands', 'Concert Going', 'Listening', 'Marching Band'],'21', 'http://www.theluckycupids.podserver.info/images/easyblog_images/muzikzote/music/Music5.jpg'],
-# 'Outdoors & Adventure' => [['Hiking', 'Climbing', 'Camping', 'Skydiving', 'Hang Gliding'],'23', 'http://www.adventurestateparks.com/!images/rotator/asp_adventure_mp_mainimage_01b.jpg'],
-# 'Paranormal' => [['Ghost Hunting', 'Alien Spotting', 'Big Foot', 'Loch Ness'],'24', 'http://cdn.screenrant.com/wp-content/uploads/miss-peregrine1.jpg'],
-# 'Animals' => [['Dog Training', 'Pets', 'Animal Control', 'Zoology', 'Cat Training'],'26', 'http://4.bp.blogspot.com/_HEjoNp_qRz8/TRcUkuX0olI/AAAAAAAAGUI/kq2MN4y46UM/s1600/Today%2527s+Cute+Funny+Silly+Animals+Friends+%25283%2529.jpg'],
-# 'Photography' => [['Film', 'Digital', 'Black and White', 'Portfolio Building'],'27', 'http://www.wallpapernation.net/images/5147-black-and-white-camera-photography.jpg'],
-# 'Sci-Fi & Fantasy' => [['Harry Potter', 'Star Trek', 'Star Wars', 'LARPing', 'Comics'],'29', 'https://trekvar.files.wordpress.com/2010/08/star_trek_2009_desktop_2_by_d_greg.png'],
-# 'Socializing' => [['Drinking', 'Karaoke', 'Team Sports', 'Talking'],'31'],
-# 'Sports & Recreation' => [['Basketball', 'Baseball', 'Football', 'Swimming', 'Soccer', 'Archery', 'Fencing'],'32', 'http://www.goldeninsidescoop.com/allsports.jpg'],
-# 'Tech' => [['Programming', 'DBC', 'Robots', 'Wearable Tech', 'Computer Building'],'34', 'http://blog.robotictradingsystems.com/Portals/158618/images/technology.jpg'],
-# }
-
 categories = {
 'Arts & Crafts' => [[
   {'Painting' => 'http://upload.wikimedia.org/wikipedia/commons/d/dd/Mary_Barnes_painting_(detail).jpg'}, {'Sculpting' => 'http://www.mrcad.com/blog-images/zbrush-sculpting.jpg'},
@@ -76,7 +56,7 @@ categories = {
   {'Marching Band'=> 'http://uofubands.music.utah.edu/Images/MB%20Pics%201011/_Z7C2841.jpg'}],'21', 'http://www.theluckycupids.podserver.info/images/easyblog_images/muzikzote/music/Music5.jpg'],
 'Outdoors & Adventure' => [[
   {'Hiking'=> 'http://www.thecheapskatemom.com/wp-content/uploads/2013/02/hiking1.jpg'},
-  {'Climbing'=> 'http://organicthemes.com/demo/adventure/files/2013/08/featured_post_03.jpg'}, {'Camping'=> 'chttp://www.wildnatureimages.com/images%203/060731-346..jpg'},
+  {'Climbing'=> 'http://organicthemes.com/demo/adventure/files/2013/08/featured_post_03.jpg'}, {'Camping'=> 'http://www.wildnatureimages.com/images%203/060731-346..jpg'},
   {'Skydiving'=> 'http://www.travelamalfi.com/wp-content/themes/Traveler2/images/skydive.jpg'}, {'Hang Gliding'=> 'http://www.lakearrowhead.com/img/hanggliding1.jpg'}],'23', 'http://www.adventurestateparks.com/!images/rotator/asp_adventure_mp_mainimage_01b.jpg'],
 'Paranormal' => [[
   {'Ghost Hunting' => 'http://video.fandango.com/FandangoMovies/thumb_Ghostbusters_30thAnniversaryExclusiveTrailer_Video_1600x1200_2472657863_gen.jpg'},
