@@ -103,7 +103,7 @@ categories = {
   {'Drinking' => 'http://resources2.news.com.au/images/2013/10/21/1226618/260806-drinking-teen.jpg'},
   {'Karaoke' => 'http://havasucityguide.com/wp-content/uploads/2013/05/Karaoke-Friends.jpg'},
   {'Team Sports' => 'http://www.norris160.org/sites/default/files/page_images/3/team-sport_1_0.jpg'},
-  {'Talking' => 'http://i.huffpost.com/gen/1427996/images/o-COLLEGE-STUDENTS-TALKING-facebook.jpg'}],'31'],
+  {'Talking' => 'http://i.huffpost.com/gen/1427996/images/o-COLLEGE-STUDENTS-TALKING-facebook.jpg'}],'31', 'http://www.personalitytutor.com/files/2012/03/Socializing-With-People.jpg'],
 'Sports & Recreation' => [[
   {'Basketball' => 'http://kicks967.com/wp-content/uploads/2015/02/basketball.jpg'},
   {'Baseball' => 'https://thenypost.files.wordpress.com/2014/09/ball.jpg?w=720&h=480&crop=1'},

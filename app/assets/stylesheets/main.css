@@ -75,8 +75,6 @@ body {
 /* -- make sure to declare a default for every property that you want animated -- */
 /* -- general styles, including Y axis rotation -- */
 .tile .front {
-  background-color: yellow;
-
     position: absolute;
     top: 0;
     z-index: 900;
@@ -103,8 +101,6 @@ body {
     -moz-transform: rotateY(180deg);
 }
 .tile .back {
-  background-color: red;
-
     position: absolute;
     top: 0;
     z-index: 800;
@@ -179,4 +175,46 @@ h3 {
     color:black !important;
     font-weight: bolder;
 }
+
+.cat-image-div {
+}
+
+.cat-image-div img {
+    height: 100%;
+    width: 100%;
+}
+
+li a img {
+    opacity: 1.0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+li a img:hover {
+    opacity: 0.2;
+}
+
+li a p {
+    opacity: 0;
+    transition: 1s;
+}
+
+li a:hover p {
+    opacity: 0.5;
+}
+
+li a {
+    position: relative;
+    display: inline-block;
+}
+
+li a img {
+    height: 10em;
+    width: 15em;
+}
+
+.panel {
+    background-color: white;
+    text-align: center;
+}
+
 
