@@ -176,3 +176,26 @@ h3 {
     font-weight: bolder;
 }
 
+
+.grid {
+    position: relative;
+    vertical-align: center;
+    /*margin-left: auto 0;*/
+    /*left: 20em;*/
+}
+.grid li {
+    display: block;
+    text-align: center;
+    position: relative;
+    float: left;
+    height: 13em;
+    width: 17em;
+    background-color: grey;
+    margin: 5px;
+}
+
+
+
+
+
+
