@@ -1,38 +1,62 @@
 <h1><%= @user.username %></h1>
-
-<img src="<%= @user.image_url %>">
-<h2>Following:</h2>
-<% @categories.each do |category| %>
-  <div id="category-name">
-    <h3><%=category.name%></h3>
-  </div>
-  <div class="slider">
-  <% @user.hobbies.each do |hobby| %>
-    <% if hobby.category.name == category.name %>
-      <div class="small-2 medium-2">
-        <a href="/hobbies/<%=hobby.id%>">
-          <img src="<%=hobby.image_url%>"/>
+<hr class='row'>
+<br>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-4 small-12 columns">
+        <div class='profile-image-div'>
+          <img class='prof-image th' src="<%= @user.image_url %>">
+        </div>
+        <a href="#">
+          <div class="panel radius">
+            <h6>
+              You have
+              <%= ' 0 hobbies' if @user.hobbies.size < 1 %>
+              <%= ' 1 hobby' if @user.hobbies.size == 1 %>
+              <%= "#{@user.hobbies.size} hobbies" if @user.hobbies.size > 1 %>
+            </h6>
+          </div>
         </a>
       </div>
-    <% end %>
-  <% end %>
+
+      <div class="large-8 columns">
+        <% @categories.each do |category| %>
+        <div class="row">
+        <div class="category-name">
+          <% if category != @categories.first %>
+          <br>
+          <% end %>
+          <h3><%=category.name%></h3>
+        </div>
+        <div class="slider">
+          <% @user.hobbies.each do |hobby| %>
+            <% if hobby.category.name == category.name %>
+            <div class="small-2 medium-2">
+              <a href="/hobbies/<%=hobby.id%>">
+                <img class="profile-hobbies" src="<%=hobby.image_url%>"/>
+                <div class="panel profile-hobby-name">
+                  <p><%=hobby.name%></p>
+                </div>
+              </a>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
 
-
-
-
-
-
-<% if user_signed_in? %>
-  <li>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-    <% if !(current_user.provider) %>
-      <%= link_to('Edit', edit_user_path) %>
-    <% end %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to('Login', new_user_session_path)  %>
-  </li>
-<% end %>
+<p></p><p></p>
+<footer class="row">
+  <div class="large-16 columns"><hr/>
+    <div class="row">
+      <div class="large-6 columns">
+        <p>CAIT FIX THIS PLZ</p>
+      </div>
+    </div>
+  </div>
+</footer>
