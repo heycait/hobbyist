@@ -1,6 +1,15 @@
+@import "compass/css3";
+
 @font-face {
     font-family: Geoma;
     src: url('geoma_thin.otf');
+}
+
+.top-bar, .nav-pic, .right {
+    background-color: #38C898;
+}
+li .has-dropdown{
+    background-color: #38C898;
 }
 
 h1, h3{
@@ -23,8 +32,12 @@ body {
     background-size: 100%, 100%;
 }
 
-.button {
-background-color: #38C898;
+.button{
+    background-color: #38C898;
+}
+
+.button:hover{
+     background-color: #299470;
 }
 
 #nav-pic {
@@ -60,7 +73,6 @@ background-color: #38C898;
 }
 
 /*homepage login*/
-@import "compass/css3";
 
 body {
   background: #F0F0F3;
