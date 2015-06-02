@@ -1,5 +1,5 @@
 <li class="accordion-navigation">
-  <a href="#panel<%= question.id %>">
+  <a class="accordion-header" href="#panel<%= question.id %>">
     <%= question.title %>
     <p class="question_header_right">
       <span><%= question.created_at.strftime("%m/%d/%Y") %></span>
@@ -17,7 +17,7 @@
     <% question.answers.each do |answer| %>
       <%= render "answers/answer", answer: answer %>
     <% end %>
-    <button class="add_answer_button" data-reveal-id="modal<%= question.id %>">Add answer</button>
+    <button class="add_answer_button" id="<%= question.id %>">Add answer</button>
     </ul>
     <div id="modal<%= question.id %>" class="<%= question.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
