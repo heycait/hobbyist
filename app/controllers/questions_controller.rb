@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :find_question, only: [:edit, :show, :destroy, :vote]
+  before_action :questions_by_hobby, only: [:search, :sort]
+  before_action :new_answer, only: [:create, :search, :sort]
 
   def index
     questions = Question.order('created_at DESC').all
@@ -8,7 +10,6 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.save
-    @answer = Answer.new
     return render partial: 'question', layout: false, locals: { question: @question, :@answer => @answer }
   end
 
@@ -81,13 +82,20 @@ class QuestionsController < ApplicationController
 
   def search
     phrase = params[:phrase]
-    @questions = Question.where(hobby_id: params[:hobby_id])
 
     unless phrase == 'all'
       @questions = @questions.where("lower(title) LIKE ? OR lower(body) LIKE ?", "%#{phrase}%", "%#{phrase}%")
     end
-    @answer = Answer.new
 
+    return render :'questions/_all_questions', layout: false
+  end
+
+  def sort
+    if params[:order] == 'popular'
+      @questions = @questions.order(vote_count: :desc)
+    elsif params[:order] == 'recent'
+      @questions = @questions.order(created_at: :desc)
+    end
     return render :'questions/_all_questions', layout: false
   end
 
@@ -98,6 +106,14 @@ class QuestionsController < ApplicationController
 
   def find_question
     @question = Question.where(id: params[:id]).first
+  end
+
+  def questions_by_hobby
+    @questions = Question.where(hobby_id: params[:hobby_id])
+  end
+
+  def new_answer
+    @answer = Answer.new
   end
 
 end

@@ -20,8 +20,8 @@
       <li>
         <!-- <div class="panel" id="add-div"> -->
           <a href="#">
-          <!-- <button class="add_question_button" data-reveal-id="new-hobby-modal">Create New Hobby</button> -->
-          <img src="http://www.veryicon.com/icon/png/System/Icons8%20Metro%20Style/Very%20Basic%20Plus.png" class="add_question_button" data-reveal-id="new-hobby-modal" id="plus-image">
+          <!-- <button class="add_button_button" data-reveal-id="new-hobby-modal">Create New Hobby</button> -->
+          <img src="http://www.veryicon.com/icon/png/System/Icons8%20Metro%20Style/Very%20Basic%20Plus.png" class="add_hobby_button" data-reveal-id="new-hobby-modal" id="plus-image">
 
         <!-- </div> -->
 
@@ -46,6 +46,9 @@
 </footer>
 
 
+
+
+
 <div id="new-hobby-modal" class="<%= @category.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">Create your hobby</h2>
   <p class="lead"></p>
@@ -65,8 +68,7 @@
     <%= f.hidden_field :category_id, value: @category.id %>
     <%= f.hidden_field :creator_id, value: current_user.id %>
     <%= f.text_field :name, placeholder: 'Name' %>
-    <%= f.text_area :description, placeholder: 'Description' %><br />
-    <%= f.collection_select :category_id, @categories, :id, :name, { include_blank: false, :selected => @category.id} %>
+    <%= f.text_area :description, placeholder: 'Description' %>
     <div class="field">
       <%= f.label :image %><br/>
       <%= f.file_field :image_url %>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "hobbies/:id/followers" => "hobbies#followers"
   resources :hobbies
   get '/questions/search' => 'questions#search'
+  get '/questions/sort/:order' => 'questions#sort'
   resources :questions
   resources :answers
 
