@@ -16,7 +16,7 @@
 </div>
 
 <div id="meetups">
-  <% if @meetups %>
+  <% if @meetups.size > 0 %>
     <h4>Upcoming Meetup Events</h4>
     <% @meetups.each do |meetup| %>
       <p>
@@ -25,7 +25,10 @@
       </p>
     <% end %>
   <% else %>
-    <h4>No Meetup Events</h4>
+    <h4>No Local Meetups</h4>
+    <p>
+      <a href='https://secure.meetup.com/create/'>Start a Meetup</a>
+    </p>
   <% end %>
 </div>
 
