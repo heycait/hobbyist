@@ -38,6 +38,15 @@
           <%= f.submit "Login", class: "button expand" %>
         </div>
       </div>
+
+      <div class="row">
+        <div class="large-12 large-centered columns">
+          <h6>Can't log in?
+            <%= link_to "Reset Password", new_password_path(resource_name) %><br />
+          </h6>
+        </div>
+      </div>
+
       <div class="row">
         <div class="large-12 large-centered columns">
           <h6>Don't Have An Account?
