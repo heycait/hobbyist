@@ -208,37 +208,36 @@
 
 
 
+<div class="row">
+  <div class="large-12 columns" id="category_list">
+    <ul class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 
-      <div class="row">
-
-        <div class="large-12 columns" id="category_list">
-
-
-          <ul class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-
-            <% @categories.each do |category| %>
-               <li>
-                <a href="/categories/<%= category.id %>">
-                <img src="<%= category.image_url %>"></a>
-              </li>
-            <% end %>
-
-          </ul>
-        </div>
-      </div>
-
-
-      <footer class="row">
-          <div class="large-12 columns">
-            <hr/>
-            <div class="row">
-              <div class="large-6 columns">
-                <p>© Copyright Hobbyist 2015</p>
-              </div>
-
-            </div>
+      <% @categories.each do |category| %>
+         <li>
+          <div class="cat-image-div">
+            <a href="/categories/<%= category.id %>">
+            <img src="<%= category.image_url %>"></a>
+            <p style="display: none">This is a test</p>
           </div>
-      </footer>
+        </li>
+      <% end %>
+
+    </ul>
+  </div>
+</div>
+
+
+<footer class="row">
+    <div class="large-12 columns">
+      <hr/>
+      <div class="row">
+        <div class="large-6 columns">
+          <p>© Copyright Hobbyist 2015</p>
+        </div>
+
+      </div>
+    </div>
+</footer>
 
 
 
