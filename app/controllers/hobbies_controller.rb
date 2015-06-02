@@ -1,6 +1,6 @@
 class HobbiesController < ApplicationController
   require 'imgur'
-  before_action :find_hobby, only: [:show, :edit, :update, :destroy, :follow]
+  before_action :find_hobby, only: [:show, :edit, :update, :destroy, :follow, :followers]
   before_action :category_collection, only: [:new, :create]
 
   def index
@@ -66,11 +66,14 @@ class HobbiesController < ApplicationController
   def follow
     if current_user.hobbies.include?(@hobby)
       current_user.hobbies.delete(@hobby)
-      render json: current_user.hobbies
     else
       current_user.hobbies << @hobby
-      render json: current_user.hobbies
     end
+    render json: @hobby.users.count
+  end
+
+  def followers
+    return render partial: 'followers', layout: false, locals: { followers: @hobby.users }
   end
 
   private
