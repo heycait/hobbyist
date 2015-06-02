@@ -7,6 +7,8 @@ function bindQuestionEvents() {
   $('.new_answer').on('submit', createAnswer);
   $('.new_question').on('submit', createQuestion);
   $('#search').on('keyup', search);
+  $('#popular_sort').on('click', sortQuestions);
+  $('#recent_sort').on('click', sortQuestions);
 };
 
 function vote(){
@@ -90,5 +92,22 @@ function search(){
   }).fail(function() {
     console.log('error');
   });
+}
 
+function sortQuestions(){
+  event.preventDefault();
+  var hobby_id = $(this).attr('class');
+  var url = $(this).attr('href');
+  var data = { hobby_id: hobby_id }
+
+  $.ajax({
+    url: url,
+    type: 'get',
+    data: data
+  }).done(function(payload) {
+
+    $('#question_list').html($(payload));
+  }).fail(function() {
+    console.log('error');
+  });
 }
