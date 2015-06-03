@@ -1,20 +1,28 @@
-<div id="hobby_header">
-  <h3 id="hobby_title"><%= @hobby.name %></h3>
-  <p><%= @hobby.description %></p>
-  <img src="<%= @hobby.image_url %>">
+<!-- <div id="hobby_header"> -->
+  <h1 id="hobby_title"><%= @hobby.name %></h1>
+  <div class="hobby-desDiv">
+    <p><%= @hobby.description %></p>
+  </div>
+  <hr>
+  <div class="">
+    <a href='./<%=@hobby.id%>'>
+      <img class="hobby-bannerImg th" src="<%=@hobby.image_url%>"/>
+    </a>
+  </div>
+
   <% if current_user.id == @hobby.creator_id %>
     <%= form_for @hobby do |f| %>
       <div class="field">
         <%= f.label 'Update Hobby Image' %><br/>
         <%= f.file_field :image_url %>
         <%= f.submit 'Update' %>
-      </div>
+      <!-- </div> -->
     <% end %>
   <% end %>
 
-  <button id="follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></button>
+  <button class="follow small th" id="follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></button>
 
-  <button id="followers_button" href="/hobbies/<%= @hobby.id %>/followers"><%= @hobby.users.count %>
+  <button class="followers small secondary th" id="followers_button" href="/hobbies/<%= @hobby.id %>/followers"><%= @hobby.users.count %>
   <% if @hobby.users.count == 1 %>
     Follower
   <% else %>
@@ -23,24 +31,36 @@
 </button>
 </div>
 
-<div id="meetups">
+<div class="meetups">
   <% if @meetups && !@meetups.empty? %>
-    <h4>Upcoming Meetup Events</h4>
+  <div class='meetup-results'>
+    <h3>Upcoming Meetup Events</h3>
     <% @meetups.each do |meetup| %>
       <p>
         <%= format_time(meetup['time']) %>
         <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
       </p>
+    </div>
     <% end %>
   <% else %>
-    <h4>No Local Meetups</h4>
+  <div class='meetup-results'>
+    <h3>No Local Meetups</h3>
     <p>
       <a href='https://secure.meetup.com/create/'>Start a Meetup</a>
     </p>
+  </div>
   <% end %>
 </div>
 
-<div id="questions">
+<div class='youtubeDiv'>
+  <div id="search-results">
+  <h3> On YouTube </h3>
+    <iframe width="400" height="215" src="" allowfullscreen id="iframe"></iframe>'
+  </div>
+</div>
+
+<hr>
+<div id="questions th">
   <h2>Questions</h2>
   <button id="add_question_button">Ask a Question</button>
   <button id="popular_sort" class="<%= @hobby.id %>" href="/questions/sort/popular">Sort by Popular</button>
@@ -66,9 +86,6 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
-<div id="search-results">
-  <iframe width="320" height="215" src="" allowfullscreen id="iframe"></iframe>'
-</div>
 
 
 
