@@ -5,7 +5,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def sign_up_params
     if params[:user][:image_url]
-      imgur_client = Imgur.new('891321eba378312')
+      # imgur_client = Imgur.new('891321eba378312')
+      imgur_client = Imgur.new(ENV['IMGUR'])
       image_path = params[:user][:image_url].tempfile.path
       image = Imgur::LocalImage.new(image_path)
       imgur_url = imgur_client.upload(image).link
@@ -17,7 +18,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def account_update_params
     if params[:user][:image_url]
-      imgur_client = Imgur.new('891321eba378312')
+      # imgur_client = Imgur.new('891321eba378312')
+      imgur_client = Imgur.new(ENV['IMGUR'])
       image_path = params[:user][:image_url].tempfile.path
       image = Imgur::LocalImage.new(image_path)
       imgur_url = imgur_client.upload(image).link

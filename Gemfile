@@ -44,6 +44,10 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+# gem 'dotenv-rails', group: :development, :require => 'dotenv/rails-now'
+gem 'dotenv'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do
