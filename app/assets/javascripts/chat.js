@@ -119,7 +119,7 @@ var init_chat_session = function(){
   ws.onmessage = function (e) {
 
     data = JSON.parse(e.data);
-    new_message = "<dt>"+data.user_name+"</dt><dd>"+data.message+"</dd>";
+    new_message = "<dt style='color: red;'>"+data.user_name+"</dt><dd>"+data.message+"</dd>";
     $('#chat_messages').append( new_message );
 
   };

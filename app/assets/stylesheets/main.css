@@ -369,3 +369,9 @@ i {
 form#send_message {
   display: none;
 }
+
+#chat_messages {
+    background-color: white;
+    overflow-y: scroll;
+    height: 400px;
+}
