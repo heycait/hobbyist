@@ -10,9 +10,10 @@ class HobbiesController < ApplicationController
   def create
     @hobby = Hobby.new(hobby_params)
     # @hobby.creator_id = current_user.id
-
+    binding.pry
     if @hobby.save
-      imgur_client = Imgur.new('891321eba378312')
+      # imgur_client = Imgur.new('891321eba378312')
+      imgur_client = Imgur.new(ENV['IMGUR'])
       image_path = hobby_params[:image_url].tempfile.path
       image = Imgur::LocalImage.new(image_path)
       imgur_url = imgur_client.upload(image).link
@@ -51,7 +52,8 @@ class HobbiesController < ApplicationController
   end
 
   def update
-    imgur_client = Imgur.new('891321eba378312')
+    # imgur_client = Imgur.new('891321eba378312')
+    imgur_client = Imgur.new(ENV['IMGUR'])
     image_path = params[:hobby][:image_url].tempfile.path
     image = Imgur::LocalImage.new(image_path)
     imgur_url = imgur_client.upload(image).link

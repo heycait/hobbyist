@@ -7,11 +7,13 @@ $(document).on('ready page:load', function() {
 
     function getData(searchValue){
       var params = {
-        key: "AIzaSyBopyTlFe_JwyvQiCqq1Y08eUH1da_Mn-E",
+        // key: "AIzaSyBopyTlFe_JwyvQiCqq1Y08eUH1da_Mn-E",
+        key: ENV['YOUTUBE'],
         part: "snippet",
         type: 'video',
         q: searchValue
       }
+      debugger
 
       $.getJSON("https://www.googleapis.com/youtube/v3/search", params, function(data){
           showData(data.items);
