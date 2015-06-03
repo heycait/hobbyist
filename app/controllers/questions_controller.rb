@@ -1,4 +1,4 @@
-git class QuestionsController < ApplicationController
+class QuestionsController < ApplicationController
   before_action :find_question, only: [:edit, :show, :destroy, :vote]
   before_action :questions_by_hobby, only: [:search, :sort]
   before_action :new_answer, only: [:create, :search, :sort]
