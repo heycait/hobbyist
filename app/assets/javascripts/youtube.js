@@ -13,7 +13,6 @@ $(document).on('ready page:load', function() {
         type: 'video',
         q: searchValue
       }
-      debugger
 
       $.getJSON("https://www.googleapis.com/youtube/v3/search", params, function(data){
           showData(data.items);
