@@ -7,8 +7,8 @@ $(document).on('ready page:load', function() {
 
     function getData(searchValue){
       var params = {
-        // key: "AIzaSyBopyTlFe_JwyvQiCqq1Y08eUH1da_Mn-E",
-        key: ENV['YOUTUBE'],
+        key: "AIzaSyBopyTlFe_JwyvQiCqq1Y08eUH1da_Mn-E",
+        // key: ENV['YOUTUBE'], This won't work since this is a JS file
         part: "snippet",
         type: 'video',
         q: searchValue
