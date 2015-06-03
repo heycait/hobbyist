@@ -1,13 +1,12 @@
-<h1><%= @category.name %></h1>
+
 
 
 <div class="row">
   <div class="large-12 columns" id="show_category">
-    <div class="emboss">
-    <div class='category-bannerDiv large-12 columns'>
-      <img class="category-bannerImg" src="<%=@category.image_url%>"/>
-    </div>
+    <div class="">
+      <img class="category-bannerImg th" src="<%=@category.image_url%>"/>
   </div>
+  <h1><%= @category.name %></h1>
 <hr>
     <ul class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 
@@ -15,7 +14,7 @@
          <li>
             <a href="/hobbies/<%= hobby.id %>">
             <div class="emboss">
-            <img src="<%= hobby.image_url %>">
+            <img class="th" src="<%= hobby.image_url %>">
              <div class="panel">
                 <h5><%= hobby.name %></h5>
              </div>
