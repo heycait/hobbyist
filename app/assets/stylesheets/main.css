@@ -322,10 +322,16 @@ li a:hover #plus-image {
 
 #question_list {
     word-wrap: break-word;
+    overflow-y: scroll;
+    height: 400px;
 }
 
 footer {
     text-align: center;
+}
+
+i {
+    font-size: 1.4em;
 }
 
 .user-hobby-list {
@@ -349,6 +355,8 @@ footer {
     max-width: 300px;
 }
 
+
 .edit-div {
     padding-top: 10px;
 }
+
