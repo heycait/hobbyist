@@ -322,6 +322,8 @@ li a:hover #plus-image {
 
 #question_list {
     word-wrap: break-word;
+    overflow-y: scroll;
+    height: 400px;
 }
 
 footer {
@@ -348,5 +350,4 @@ footer {
     min-width: 100px;
     max-width: 300px;
 }
-
 
