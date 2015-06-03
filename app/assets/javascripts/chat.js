@@ -1,5 +1,6 @@
 $(document).ready(function(){
   init_enter_chat_room_form();
+  // init_chat_session();
   // $('#send_message').hide();
 });
 
@@ -126,3 +127,10 @@ var init_chat_session = function(){
 
 }
 
+/*
+chmod +x server_em.rb
+chmod +x server_web.rb
+
+./server_em.rb &
+./server_web.rb &
+*/
