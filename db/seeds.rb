@@ -122,26 +122,21 @@ end
 categories.each do |cat, params|
   new_cat = Category.create(name: cat, meetup_id: params[1], image_url: params[2])
   params[0].each do |hash|
+    new_hobby = Hobby.new
+    new_hobby.category_id = new_cat.id
+    new_hobby.name = hash['name']
+    new_hobby.image_url = hash['image']
+    new_hobby.description = hash['description']
+    new_hobby.save
 
-      hash.each do |key, value|
-        new_hobby = Hobby.new
-        new_hobby.category_id = new_cat.id
-        new_hobby.name = hash['name']
-        new_hobby.image_url = hash['image']
-        new_hobby.description = hash['description']
-        new_hobby.save
+    all_users.sample.hobbies << new_hobby
 
-        all_users.sample.hobbies << new_hobby
-    # hash.each do |hobby, image|
-    #   new_hobby = Hobby.create(name: hobby, description: Faker::Lorem.paragraph, image_url: image, category_id: new_cat.id)
-    #   all_users.sample.hobbies << new_hobby
-
+    3.times do
+      new_question = Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph, user_id: all_users.sample.id, hobby_id: new_hobby.id)
       3.times do
-        new_question = Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph, user_id: all_users.sample.id, hobby_id: new_hobby.id)
-        3.times do
-          new_answer = Answer.create(body: Faker::Company.bs, question_id: new_question.id, user_id: all_users.sample.id)
-        end
+        new_answer = Answer.create(body: Faker::Company.bs, question_id: new_question.id, user_id: all_users.sample.id)
       end
     end
   end
+
 end
