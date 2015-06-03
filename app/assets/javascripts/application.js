@@ -16,5 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
-$(document).foundation('accordion', 'reflow');
+$(document).on('page:change', function() {
+  $(function(){ $(document).foundation(); });
+  $(document).foundation('accordion', 'reflow');
+});
