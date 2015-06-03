@@ -2,10 +2,10 @@
   <a class="accordion-header" href="#panel<%= question.id %>">
     <%= question.title %>
     <p class="question_header_right">
-      <span><%= question.created_at.strftime("%m/%d/%Y") %></span>
-      <%= link_to "▲", question_path(question)+'/upvote', class: 'vote' %>
+      <span><%= question.created_at.strftime("%m/%d/%Y") %> </span>
+      <%= link_to raw(' <i class="fi-like"></i>'), question_path(question)+'/upvote', class: 'vote' %>
       <span><%= question.vote_count %></span>
-      <%= link_to "▼", question_path(question)+'/downvote', class: 'vote' %>
+      <%= link_to raw(' <i class="fi-dislike"></i>'), question_path(question)+'/downvote', class: 'vote' %>
     </p>
   </a>
   <div id="panel<%= question.id %>" class="content">

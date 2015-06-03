@@ -330,6 +330,10 @@ footer {
     text-align: center;
 }
 
+i {
+    font-size: 1.4em;
+}
+
 .user-hobby-list {
     list-style-type: none;
     max-height: 500px;
