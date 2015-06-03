@@ -107,7 +107,8 @@ var init_send_message_form = function(){
 var init_chat_session = function(){
 
   // open web socket
-  ws = new WebSocket("ws://hobbees.herokuapp.com/" + chat_room);
+  // redis://redistogo:8c8be7c70fdbdf21647bc236e0925dcd@hammerjaw.redistogo.com:10694/
+  ws = new WebSocket("ws://hobbees.herokuapp.com:8080/" + chat_room);
   // ws = new WebSocket("ws://127.0.0.1:8080/" + chat_room);
 
   ws.onerror = function(error){};
