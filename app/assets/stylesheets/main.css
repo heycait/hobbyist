@@ -167,31 +167,43 @@ video#video {
 }
 
 .slider{
-    height: 15em;
-    width: 50%;
-    margin: 1em auto;
-    text-align:center;
-    background-color: white;
+    float: top right;
+    max-height: 150px;
+    /*width:100px;*/
+    max-width: 800px;
+    /*margin-left: 20px;*/
+    /*text-align:center;*/
 }
+
+.slider .panel {
+    height: 20px;
+}
+
+.slick-slider {
+    /*margin-left: 30px;*/
+}
+
+
 
 .slider div{
     /*margin: auto;*/
     height: 100%;
     width: 100%;
+/*    height: 300px;
+    width: 800px;*/
     text-align: center;
 }
 
 .slider div img {
     border: solid white;
     text-align: center;
-    height: 100%;
+    height: 150px;
     width: 100%;
 }
 
 .category-name {
     text-align: center;
-    margin-left: 20% auto;
-    position: fixed;
+    /*margin-top: 20px;*/
 }
 
 h3 {
@@ -204,8 +216,12 @@ h3 {
     font-weight: bolder;
 }
 
-.cat-image-div {
+.slick-initialized {
+/*    margin-right: 70px;
+    margin-left: 70px;*/
+    margin: auto 40px;
 }
+
 
 .cat-image-div img {
     height: 100%;
@@ -269,6 +285,27 @@ li a:hover #plus-image {
     border: none;
 }
 
+.profile-image-div {
+    min-height: 100px;
+    min-width: 100px;
+    max-height: 300px;
+    max-width: 300px;
+}
+
+.prof-image {
+    height: 100%;
+    width: 100%;
+}
+
+.profile-hobbies {
+    opacity: 1.0;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.profile-hobbies:hover {
+    opacity: 0.2;
+}
+
 .content {
     max-height: 500px;
     overflow-y: scroll;
@@ -294,3 +331,25 @@ footer {
 i {
     font-size: 1.4em;
 }
+
+.user-hobby-list {
+    list-style-type: none;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.user-hobby-list li {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.hobby-list-insideDiv {
+
+}
+
+.radius {
+    min-height: 100px;
+    min-width: 100px;
+    max-width: 300px;
+}
+
