@@ -2,8 +2,11 @@
 
 
 <div class="row">
-<hr>
   <div class="large-12 columns" id="show_category">
+    <div class='category-bannerDiv large-12 columns'>
+      <img class="category-bannerImg" src="<%=@category.image_url%>"/>
+    </div>
+<hr>
     <ul class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 
       <% @hobbies.each do |hobby| %>
