@@ -19,11 +19,11 @@ $(document).on('ready page:load', function() {
     }
 
     function showData(data){
-      var html = "";
-      var num = Math.floor((Math.random() * data.length) + 1);
+      var num = Math.floor((Math.random() * data.length));
       var link = 'http://www.youtube.com/embed/' + data[num].id.videoId
       $('#iframe').attr('src', link)
     }
+
   }
 
 });
