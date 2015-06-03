@@ -3,7 +3,7 @@ $(document).on('page:change', function() {
 });
 
 function bindHobbyEvents() {
-  $('#add_hobby_button').on('click', showHobbyModal);
+  $('.add_hobby_button').on('click', showHobbyModal);
   // $('#followers_button').on('click', showFollowerModal);
 };
 
