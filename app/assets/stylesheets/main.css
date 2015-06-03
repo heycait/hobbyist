@@ -390,3 +390,14 @@ form#send_message {
     height: 400px;
 }
 
+#default-index-bg {
+     background-image: url('default-homepage-img.jpg');
+     background-size: cover;
+     position: absolute;
+     top: 0px;
+     left: 0px;
+     min-width: 100%;
+     min-height: 100%;
+     z-index: -2;
+     overflow: hidden;
+}
