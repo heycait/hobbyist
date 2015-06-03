@@ -107,7 +107,8 @@ var init_send_message_form = function(){
 var init_chat_session = function(){
 
   // open web socket
-  ws = new WebSocket("ws://127.0.0.1:8080/" + chat_room);
+  ws = new WebSocket("ws://hobbees.herokuapp.com/" + chat_room);
+  // ws = new WebSocket("ws://127.0.0.1:8080/" + chat_room);
 
   ws.onerror = function(error){};
 
@@ -128,6 +129,8 @@ var init_chat_session = function(){
 }
 
 /*
+redis-server /usr/local/etc/redis.conf &
+
 chmod +x server_em.rb
 chmod +x server_web.rb
 
