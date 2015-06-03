@@ -19,11 +19,22 @@ $(document).on('ready page:load', function() {
     }
 
     function showData(data){
-      var html = "";
-      var num = Math.floor((Math.random() * data.length) + 1);
-      var link = 'http://www.youtube.com/embed/' + data[num].id.videoId
-      $('#iframe').attr('src', link)
+
+        var html = "";
+        var num = Math.floor((Math.random() * data.length));
+        if(data[num]){
+          var link = 'http://www.youtube.com/embed/' + data[num].id.videoId
+          $('#iframe').attr('src', link)
+        }
+        else { debugger; console.log("ohno");}
     }
+
+    // function showData(data){
+    //   var html = "";
+    //   var num = Math.floor((Math.random() * data.length) + 1);
+    //   var link = 'http://www.youtube.com/embed/' + data[num].id.videoId
+    //   $('#iframe').attr('src', link)
+    // }
   }
 
 });
