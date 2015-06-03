@@ -12,6 +12,7 @@
     <% end %>
   <% end %>
 
+
   <button id="follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></button>
 
   <button id="followers_button" href="/hobbies/<%= @hobby.id %>/followers"><%= @hobby.users.count %>
