@@ -366,3 +366,6 @@ i {
     padding-top: 10px;
 }
 
+form#send_message {
+  display: none;
+}
