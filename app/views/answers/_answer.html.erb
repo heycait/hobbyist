@@ -1,7 +1,9 @@
 <li>
-  <%= answer.body %>
+  <div class="answerdiv"><%= answer.body %></div>
+  <p></p>
   posted by <%= author(answer) %>
-  <%= link_to "▲", answer_path(answer)+'/upvote', class: 'vote' %>
+  <%= link_to raw(' <i class="fi-like"></i>'), answer_path(answer)+'/upvote', class: 'vote' %>
   <span><%= answer.vote_count %></span>
-  <%= link_to "▼", answer_path(answer)+'/downvote', class: 'vote' %>
+  <%= link_to raw(' <i class="fi-dislike"></i>'), answer_path(answer)+'/downvote', class: 'vote' %>
+<hr>
 </li>

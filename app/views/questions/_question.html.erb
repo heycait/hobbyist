@@ -1,11 +1,11 @@
 <li class="accordion-navigation">
-  <a href="#panel<%= question.id %>">
+  <a class="accordion-header" href="#panel<%= question.id %>">
     <%= question.title %>
     <p class="question_header_right">
-      <span><%= question.created_at.strftime("%m/%d/%Y") %></span>
-      <%= link_to "▲", question_path(question)+'/upvote', class: 'vote' %>
+      <span><%= question.created_at.strftime("%m/%d/%Y") %> </span>
+      <%= link_to raw(' <i class="fi-like"></i>'), question_path(question)+'/upvote', class: 'vote' %>
       <span><%= question.vote_count %></span>
-      <%= link_to "▼", question_path(question)+'/downvote', class: 'vote' %>
+      <%= link_to raw(' <i class="fi-dislike"></i>'), question_path(question)+'/downvote', class: 'vote' %>
     </p>
   </a>
   <div id="panel<%= question.id %>" class="content">
@@ -14,10 +14,11 @@
       <p>- <%= author(question) %></p>
     </div>
     <ul class="answer_list">
+    <hr>
     <% question.answers.each do |answer| %>
       <%= render "answers/answer", answer: answer %>
     <% end %>
-    <button class="add_answer_button" data-reveal-id="modal<%= question.id %>">Add answer</button>
+    <button class="add_answer_button" id="<%= question.id %>">Add answer</button>
     </ul>
     <div id="modal<%= question.id %>" class="<%= question.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 

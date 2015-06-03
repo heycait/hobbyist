@@ -1,38 +1,61 @@
 <h1><%= @user.username %></h1>
-
-<img src="<%= @user.image_url %>">
-<h2>Following:</h2>
-<% @categories.each do |category| %>
-  <div id="category-name">
-    <h3><%=category.name%></h3>
-  </div>
-  <div class="slider">
-  <% @user.hobbies.each do |hobby| %>
-    <% if hobby.category.name == category.name %>
-      <div class="small-2 medium-2">
-        <a href="/hobbies/<%=hobby.id%>">
-          <img src="<%=hobby.image_url%>"/>
-        </a>
+<hr class='row'>
+<br>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="medium-4 small-12 columns">
+        <div class='profile-image-div'>
+          <img class='prof-image th' src="<%= @user.image_url %>">
+        </div>
+          <div class="invisible panel"></div>
+          <div class="panel radius">
+            <h6>
+              <% if current_user == @user %>
+                You have
+              <% else %>
+                <%= @user.username.split(' ').each {|x| x.capitalize }.join(' ') %> has
+              <% end %>
+              <%= ' 0 hobbies' if @user.hobbies.size < 1 %>
+              <%= ' 1 hobby' if @user.hobbies.size == 1 %>
+              <%= "#{@user.hobbies.size} hobbies" if @user.hobbies.size > 1 %>
+            </h6><hr>
+            <ul class="user-hobby-list">
+              <% @user.hobbies.sort_by{ |h| h.name }.each do |hobby| %>
+              <div class="hobby-list-insideDiv">
+                <a href="/hobbies/<%=hobby.id%>">
+                  <li><%= hobby.name %></li><p></p>
+                </a>
+              </div>
+              <% end %>
+            </ul>
+          </div>
       </div>
-    <% end %>
-  <% end %>
+
+      <div class="medium-8 columns arrow">
+        <% @categories.each do |category| %>
+        <div class="row">
+        <div class="category-name">
+          <% if category != @categories.first %>
+          <br>
+          <% end %>
+          <h3><%=category.name%></h3>
+        </div>
+        <div class="slider">
+          <% @user.hobbies.each do |hobby| %>
+            <% if hobby.category.name == category.name %>
+            <!-- <div class="small-2 medium-2"> -->
+              <a href="/hobbies/<%=hobby.id%>">
+                <img class="profile-hobbies" src="<%=hobby.image_url%>"/>
+              </a>
+            <!-- </div> -->
+            <% end %>
+          <% end %>
+        </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
-
-
-
-
-
-
-<% if user_signed_in? %>
-  <li>
-    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-    <% if !(current_user.provider) %>
-      <%= link_to('Edit', edit_user_path) %>
-    <% end %>
-  </li>
-<% else %>
-  <li>
-    <%= link_to('Login', new_user_session_path)  %>
-  </li>
-<% end %>
+</div>
+<br><br>

@@ -43,9 +43,23 @@
   </div>
 
     <%= yield %>
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation/foundation.js"></script>
-    <script src="js/foundation/foundation.topbar.js"></script>
+    <!-- <script src="js/vendor/jquery.js"></script>
+    // <script src="js/foundation/foundation.js"></script>
+    // <script src="js/foundation/foundation.topbar.js"></script> -->
 
   </body>
+
+  <% if user_signed_in? %>
+  <footer class="row">
+ <!--    <div class="large-12 columns"> -->
+      <hr/>
+      <!-- <div class="row"> -->
+        <!-- <div class="large-6 columns"> -->
+          <p>©2015 Hobbyist</p>
+        <!-- </div> -->
+
+      <!-- </div> -->
+    <!-- </div> -->
+  </footer>
+  <% end %>
 </html>
