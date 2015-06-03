@@ -18,7 +18,7 @@
               <% if current_user == @user %>
                 You have
               <% else %>
-                <%=@user.username.capitalize%> has
+                <%= @user.username.split(' ').each {|x| x.capitalize }.join(' ') %> has
               <% end %>
               <%= ' 0 hobbies' if @user.hobbies.size < 1 %>
               <%= ' 1 hobby' if @user.hobbies.size == 1 %>
