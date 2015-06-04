@@ -384,9 +384,10 @@ iframe {
 }
 
 .sortButtons {
-    /*width: 300px;*/
+    text-align: center;
+    width: 300px;
     display: block;
-    margin: 3em 1em auto;
+    margin: 0 auto;
 }
 
 #recent_sort {
@@ -395,6 +396,7 @@ iframe {
 
 .searchDiv {
     width: 300px;
+    display: block;
 }
 
 .mag {
