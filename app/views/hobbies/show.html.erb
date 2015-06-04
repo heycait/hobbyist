@@ -70,17 +70,24 @@
 <div class="questionsWrapper">
   <div id="questions th">
     <h2>Questions</h2>
-    <button class="button small emboss" id="add_question_button" data-reveal-id="new-question-modal">Ask a Question</button>
-    <input type="text" id="search" class="<%= @hobby.id %> emboss" placeholder="search questions"><i class="fi-magnifying-glass"></i>
+    <div class='searchDiv'>
+      <div class="searchField">
+        <input type="text" id="search" class="<%= @hobby.id %> emboss" placeholder="search questions">
+      </div>
+      <div class='magGlass'>
+        <i class="fi-magnifying-glass"></i>
+      </div>
+    </div>
     <div class="sortButtons">
-      <button id="popular_sort" class="<%= @hobby.id %> tiny emboss button" href="/questions/sort/popular">Sort by Popular</button>
-      <button id="recent_sort" class="<%= @hobby.id %> tiny emboss button" href="/questions/sort/recent">Sort by Recent</button>
+      <button id="popular_sort" class="<%= @hobby.id %> tiny emboss button center" href="/questions/sort/popular">Sort by Popular</button>
+      <button id="recent_sort" class="<%= @hobby.id %> tiny emboss button center" href="/questions/sort/recent">Sort by Recent</button>
     </div>
     <ul id="question_list" class="accordion" data-accordion>
       <% @hobby.questions.each do |question| %>
         <%= render "questions/question", question: question %>
       <% end %>
     </ul>
+    <div class="center"><button class="button small emboss" id="add_question_button" data-reveal-id="new-question-modal">Ask a Question</button></div>
   </div>
 </div>
 

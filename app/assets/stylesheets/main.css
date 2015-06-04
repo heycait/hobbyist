@@ -384,7 +384,9 @@ iframe {
 }
 
 .sortButtons {
-    text-align: center;
+    /*width: 300px;*/
+    display: block;
+    margin: 3em 1em auto;
 }
 
 #recent_sort {
@@ -392,7 +394,7 @@ iframe {
 }
 
 .searchDiv {
-    width: 80%;
+    width: 300px;
 }
 
 .mag {
@@ -454,4 +456,23 @@ li .last {
     padding: 2%;
     border: 1px solid #BFBFC1;
     background-color: white;
+}
+
+.searchDiv {
+    width: 300px;
+    float: right;
+    display: block;
+    /*margin-bottom: 4em;*/
+}
+
+.searchField {
+    display: inline-block;
+    margin-left: 0.5em;
+    float: right;
+    width: 250px;
+}
+
+.magGlass {
+    display: inline-block;
+    float: right;
 }
