@@ -70,7 +70,7 @@
 <div class="questionsWrapper">
   <div id="questions th">
     <h2>Questions</h2>
-    <button class="button th emboss" id="add_question_button" data-reveal-id="new-question-modal">Ask a Question</button>
+    <button class="button small emboss" id="add_question_button" data-reveal-id="new-question-modal">Ask a Question</button>
     <input type="text" id="search" class="<%= @hobby.id %> emboss" placeholder="search questions"><i class="fi-magnifying-glass"></i>
     <div class="sortButtons">
       <button id="popular_sort" class="<%= @hobby.id %> tiny emboss button" href="/questions/sort/popular">Sort by Popular</button>
@@ -114,7 +114,7 @@
     <form id='enter_chat_room' role='form'>
       <input type="hidden" id="chat_room" value="<%= @hobby.name %>">
       <input type="hidden" id="user_name" value="<%= current_user.username %>">
-      <button type="submit" class="btn btn-default th button">Enter Chat</button>
+      <button type="submit" class="btn btn-default small button">Enter Chat</button>
     </form>
 
     <form id='send_message' role='form'>
