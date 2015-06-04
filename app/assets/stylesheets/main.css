@@ -453,3 +453,7 @@ form#send_message {
     top: -5px;
     position: relative;
 }
+
+.about{
+    background-color: white;
+}
