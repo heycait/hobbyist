@@ -1,4 +1,5 @@
 class HashtagsController < ApplicationController
+
   def create
   end
 
@@ -11,4 +12,5 @@ class HashtagsController < ApplicationController
     hashtags = hashtags.map { |tag| tag.name }
     render json: hashtags
   end
+
 end

@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+
   def index
     if user_signed_in?
       @categories = Category.order(name: :asc)
@@ -13,4 +14,5 @@ class CategoriesController < ApplicationController
     @hobby = Hobby.new
     @categories = Category.order(name: :asc)
   end
+
 end

@@ -1,50 +1,13 @@
 class QuestionsController < ApplicationController
-  before_action :find_question, only: [:edit, :show, :destroy, :vote]
+  before_action :find_question, only: [:vote]
   before_action :questions_by_hobby, only: [:search, :sort]
   before_action :new_answer, only: [:create, :search, :sort]
-
-  # def index
-  #   questions = Question.order('created_at DESC').all
-  # end
 
   def create
     @question = Question.new(question_params)
     @question.save
     return render partial: 'question', layout: false, locals: { question: @question, :@answer => @answer }
   end
-
-  # def new
-  #   question = Question.new
-  #   render json: question
-  # end
-
-  # def edit
-  #   if compare_user?
-  #     render json: @question
-  #   else
-  #     render json: {errors: 'Unauthorized request'}, status: 401
-  #   end
-  # end
-
-  # def show
-  #   answers = @question.answers.order('created_at DESC').all
-  # end
-
-  # def update
-  #   @question.update_attributes(question_params)
-  # end
-
-  # def destroy
-  #   if @question
-  #     if compare_user?
-  #       @question.destroy
-  #     else
-  #       render json: {errors: 'Unauthorized request'}, status: 401
-  #     end
-  #   else
-  #     render json: {errors: 'Bad Request'}, status: 400
-  #   end
-  # end
 
   def vote
     user = current_user
