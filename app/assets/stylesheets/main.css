@@ -462,7 +462,8 @@ form#send_message {
 .add_question_button {
     display: block;
 }
-.apiDiv {
+
+.center {
     text-align: center;
 }
 
