@@ -1,5 +1,6 @@
 function bindQuestionEvents() {
-  $('body').on('click', 'a.vote', vote)
+  $('body').on('click', '.q-vote', questionVote)
+  $('body').on('click', '.a-vote', answerVote)
   $('body').on('submit', '.new_answer', createAnswer);
   $('body').on('submit', '.new_question', createQuestion);
   $('body').on('keyup', '#search', search);
@@ -7,7 +8,7 @@ function bindQuestionEvents() {
   $('body').on('click', '#recent_sort', sortQuestions);
 };
 
-function vote(){
+function questionVote(){
   event.preventDefault();
 
   var button = $(this);
@@ -16,8 +17,24 @@ function vote(){
   $.ajax({
     url: url,
     type: 'get'
-  }).done(function(data) {
-    button.siblings('span').text(data);
+  }).done(function(count) {
+    button.parent().siblings().find('span').text(count)
+  }).fail(function() {
+    console.log('error');
+  });
+};
+
+function answerVote(){
+  event.preventDefault();
+
+  var button = $(this);
+  var url = $(this).attr('href');
+
+  $.ajax({
+    url: url,
+    type: 'get'
+  }).done(function(count) {
+    button.siblings('span').text(count);
   }).fail(function() {
     console.log('error');
   });
