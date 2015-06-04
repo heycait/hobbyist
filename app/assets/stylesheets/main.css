@@ -351,10 +351,6 @@ form#send_message {
     display: block;
 }
 
-.center {
-    text-align: center;
-}
-
 .meetupsDiv {
     width: 400px;
     display: inline-block;
@@ -392,11 +388,6 @@ iframe {
 
 #recent_sort {
     margin-left: 2em;
-}
-
-.searchDiv {
-    width: 300px;
-    display: block;
 }
 
 .mag {
@@ -477,4 +468,14 @@ li .last {
 .magGlass {
     display: inline-block;
     float: right;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.align {
+    text-align: center;
 }

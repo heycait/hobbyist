@@ -29,7 +29,7 @@
         <%= f.hidden_field :question_id, value: question.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= text_area(:answer, :body, cols: 20, rows: 5, placeholder: 'Write your answer here...') %>
-        <%= f.submit 'Add Answer', :class => 'button' %>
+        <div class="center"><%= f.submit 'Add Answer', :class => 'button' %></div>
       <% end %>
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>

@@ -79,8 +79,8 @@
       </div>
     </div>
     <div class="sortButtons">
-      <button id="popular_sort" class="<%= @hobby.id %> tiny emboss button center" href="/questions/sort/popular">Sort by Popular</button>
-      <button id="recent_sort" class="<%= @hobby.id %> tiny emboss button center" href="/questions/sort/recent">Sort by Recent</button>
+      <button id="popular_sort" class="<%= @hobby.id %> tiny emboss button align" href="/questions/sort/popular">Sort by Popular</button>
+      <button id="recent_sort" class="<%= @hobby.id %> tiny emboss button align" href="/questions/sort/recent">Sort by Recent</button>
     </div>
     <ul id="question_list" class="accordion" data-accordion>
       <% @hobby.questions.each do |question| %>
@@ -101,7 +101,7 @@
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.text_field :title, placeholder: 'Question Title' %>
     <%= text_area(:question, :body, cols: 20, rows: 5, placeholder: 'Question Body') %>
-    <%= f.submit 'Add Question', :class => 'button' %>
+    <div class="center"><%= f.submit 'Ask Question', :class => 'button' %></div>
   <% end %>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
