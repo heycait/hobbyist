@@ -9,18 +9,22 @@ Rails.application.routes.draw do
       root :to => 'devise/registrations#new', as: :unauthenticated_root
     end
   end
+
   resources :users
   resources :categories
+
   get "hobbies/:id/follow" => "hobbies#follow"
   get "hobbies/:id/followers" => "hobbies#followers"
   resources :hobbies
+
   get '/questions/search' => 'questions#search'
   get '/questions/sort/:order' => 'questions#sort'
   resources :questions
-  resources :answers
-
   get '/questions/:id/:vote' => 'questions#vote'
+
+  resources :answers
   get '/answers/:id/:vote' => 'answers#vote'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
