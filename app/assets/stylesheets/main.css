@@ -440,6 +440,18 @@ iframe {
     position: relative;
 }
 
+
+button {
+    background-color: #38C898;
+}
+
 li .last {
     height: 60px;
+
+}
+
+.questionsWrapper {
+    padding: 2%;
+    border: 1px solid #BFBFC1;
+    background-color: white;
 }
