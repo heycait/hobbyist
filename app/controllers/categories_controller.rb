@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.where(id: params[:id]).first
     @hobbies = @category.hobbies
     @hobby = Hobby.new
     @categories = Category.order(name: :asc)

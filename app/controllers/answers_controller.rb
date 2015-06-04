@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  before_action :find_answer, only: [:edit, :show, :destroy, :vote]
+  before_action :find_answer, only: [:vote]
 
   def create
     @answer = Answer.new(answer_params)
@@ -45,7 +45,7 @@ class AnswersController < ApplicationController
   end
 
   def find_answer
-    @answer = Answer.find(params[:id])
+    @answer = Answer.where(id: params[:id]).first
   end
 
 end

@@ -60,7 +60,7 @@ class HobbiesController < ApplicationController
   end
 
   def find_hobby
-    @hobby = Hobby.find(params[:id])
+    @hobby = Hobby.where(id: params[:id]).first
   end
 
 end
