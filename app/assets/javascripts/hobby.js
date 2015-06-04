@@ -1,15 +1,7 @@
 function bindHobbyEvents() {
   $('body').on('click', '#follow', followHobby);
   $('body').on('click', '#followers_button', showFollowers);
-
-  $('body').on('click', '#add_question_button', showQuestionModal);
-  $('body').on('click', '.add_answer_button', showAnswerModal);
-  $('body').on('click', '.add_hobby_button', showHobbyModal);
 };
-
-function showHobbyModal(){
-  $('#new-hobby-modal').foundation('reveal', 'open');
-}
 
 function followHobby() {
   event.preventDefault();
@@ -51,13 +43,4 @@ function showFollowers() {
   }).fail(function() {
       console.log('error');
   });
-}
-
-function showQuestionModal(){
-  $('#new-question-modal').foundation('reveal', 'open');
-}
-
-function showAnswerModal(){
-  var modal = '#modal'+this.id;
-  $(modal).foundation('reveal', 'open');
 }

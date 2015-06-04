@@ -102,7 +102,6 @@ function sortQuestions(){
     type: 'get',
     data: data
   }).done(function(payload) {
-
     $('#question_list').html($(payload));
   }).fail(function() {
     console.log('error');

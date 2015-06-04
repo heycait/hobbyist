@@ -18,7 +18,7 @@
     <% question.answers.each do |answer| %>
       <%= render "answers/answer", answer: answer %>
     <% end %>
-    <button class="add_answer_button" id="<%= question.id %>">Add answer</button>
+    <button class="add_answer_button" id="<%= question.id %>" data-reveal-id="modal<%= question.id %>">Add answer</button>
     </ul>
     <div id="modal<%= question.id %>" class="<%= question.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
