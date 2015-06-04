@@ -22,7 +22,7 @@
       <%= render "answers/answer", answer: answer %>
     <% end %>
     <li class="last">
-    <button class="add_answer_button" id="<%= question.id %>" data-reveal-id="modal<%= question.id %>">Add answer</button></li>
+    <button class="button add_answer_button" id="<%= question.id %>" data-reveal-id="modal<%= question.id %>">Add answer</button></li>
     </ul>
     <div id="modal<%= question.id %>" class="<%= question.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
@@ -32,7 +32,7 @@
         <%= f.hidden_field :question_id, value: question.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= text_area(:answer, :body, cols: 20, rows: 5, placeholder: 'Write your answer here...') %>
-        <%= f.submit %>
+        <div class="center"><%= f.submit 'Add Answer', :class => 'button' %></div>
       <% end %>
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>

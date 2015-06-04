@@ -289,9 +289,10 @@ form#send_message {
     height: 400px;
 }
 
-.backButton {
+.doNothing {
     margin-bottom: 0px;
     float: left;
+    opacity: 0;
 }
 
 .usernameDiv {
@@ -442,6 +443,11 @@ iframe {
     position: relative;
 }
 
+
+button {
+    background-color: #38C898;
+}
+
 li .last {
     height: 60px;
 }
@@ -460,4 +466,16 @@ li .last {
 .accordion .accordion-navigation > a, .accordion dd > a {
    display: inline-block;
    width: 80%;
+
+}
+
+.questionsWrapper {
+    padding: 2%;
+    border: 1px solid #BFBFC1;
+    background-color: white;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
 }
