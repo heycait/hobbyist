@@ -4,8 +4,8 @@ $(document).on('page:change', function() {
 
 function bindFollowEvents() {
   $('body').on('click', '#follow', followHobby);
-  $('#followers_button').on('click', showFollowers);
-  $('#add_question_button').on('click', showQuestionModal);
+  $('body').on('click', '#followers_button', showFollowers);
+  $('body').on('click', '#add_question_button', showQuestionModal);
   $('body').on('click', '.add_answer_button', showAnswerModal);
   // $('#question_list').on('click', '.accordion-header', accordion);
 }
