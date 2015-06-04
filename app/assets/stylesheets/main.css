@@ -448,3 +448,9 @@ li .last {
     height: 60px;
 
 }
+
+.questionsWrapper {
+    padding: 2%;
+    border: 1px solid #BFBFC1;
+    background-color: white;
+}
