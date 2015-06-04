@@ -4,11 +4,11 @@ $(document).on('page:change', function() {
 
 function bindQuestionEvents() {
   $('body').on('click', 'a.vote', vote)
-  $('.new_answer').on('submit', createAnswer);
-  $('.new_question').on('submit', createQuestion);
-  $('#search').on('keyup', search);
-  $('#popular_sort').on('click', sortQuestions);
-  $('#recent_sort').on('click', sortQuestions);
+  $('body').on('submit', '.new_answer', createAnswer);
+  $('body').on('submit', '.new_question', createQuestion);
+  $('body').on('keyup', '#search', search);
+  $('body').on('click', '#popular_sort', sortQuestions);
+  $('body').on('click', '#recent_sort', sortQuestions);
 };
 
 function vote(){
