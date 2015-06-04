@@ -455,3 +455,8 @@ li .last {
     border: 1px solid #BFBFC1;
     background-color: white;
 }
+
+.center {
+    display: block;
+    margin: 0 auto;
+}
