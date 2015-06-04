@@ -354,10 +354,6 @@ form#send_message {
     display: block;
 }
 
-.center {
-    text-align: center;
-}
-
 .meetupsDiv {
     width: 400px;
     display: inline-block;
@@ -388,14 +384,13 @@ iframe {
 
 .sortButtons {
     text-align: center;
+    width: 300px;
+    display: block;
+    margin: 0 auto;
 }
 
 #recent_sort {
     margin-left: 2em;
-}
-
-.searchDiv {
-    width: 80%;
 }
 
 .mag {
@@ -475,7 +470,31 @@ li .last {
     background-color: white;
 }
 
+.searchDiv {
+    width: 300px;
+    float: right;
+    display: block;
+    /*margin-bottom: 4em;*/
+}
+
+.searchField {
+    display: inline-block;
+    margin-left: 0.5em;
+    float: right;
+    width: 250px;
+}
+
+.magGlass {
+    display: inline-block;
+    float: right;
+}
+
 .center {
     display: block;
     margin: 0 auto;
+    text-align: center;
+}
+
+.align {
+    text-align: center;
 }
