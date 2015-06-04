@@ -286,9 +286,10 @@ form#send_message {
     height: 400px;
 }
 
-.backButton {
+.doNothing {
     margin-bottom: 0px;
     float: left;
+    opacity: 0;
 }
 
 .usernameDiv {
