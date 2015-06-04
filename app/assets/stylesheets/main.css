@@ -13,7 +13,7 @@
   background: #38C898 !important;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .foot-info {
     font-family: Geoma, 'Syncopate';
     font-weight: bold;
     text-align: center;
@@ -465,3 +465,17 @@ hr.stylish-hr {
 /*    border: 5px solid black;
     border-radius: 50%;
 */}
+
+.foot-info{
+    height: 25%;
+    padding-top: 1%;
+    background-color: #D9D8C5;
+}
+
+.footer-name, #logo{
+    display: inline-block;
+    padding-left: 1%;
+}
+.address{
+    text-align: left;
+}
