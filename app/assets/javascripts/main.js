@@ -5,6 +5,8 @@ $(document).on('page:change', function() {
     window.history.back();
   })
 
+  $('.doNothing').css("cursor", "default");
+
   bindHobbyEvents();
   bindQuestionEvents();
   init_enter_chat_room_form();
