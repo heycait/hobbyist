@@ -13,30 +13,11 @@
   background: #38C898 !important;
 }
 
-/*.large-12.columns{
-    width: 105%;
-}*/
-/* Changes background color of top-bar menu items  */
-/*.top-bar-section #menu-primary a,
-.top-bar-section #menu-primary a:hover {
-  background-color: #38C898 !important;
-  color: red;
-  font-weight: 700;
-}
-*/
-/*---------*/
-/*li .has-dropdown{
-    background-color: #38C898;
-}*/
-
-
 h1, h2, h3 {
     font-family: Geoma, 'Syncopate';
     font-weight: bold;
     text-align: center;
     text-shadow: 2px 2px 2px rgba(19, 71, 54, 0.45);
-    /*color: #38C898;*/
-    /*font-family: 'Syncopate', sans-serif; }*/
 }
 
 h2 {
@@ -46,9 +27,6 @@ h2 {
 h3, h6{
     text-align: center;
 }
-/*.fb-login{
-    padding-left: 7%;
-}*/
 
 body {
     font-family: 'Droid Sans', sans-serif;
@@ -85,18 +63,6 @@ body {
     float: right;
 }
 
-/*.tile {
-    margin: 2%;
-    width: 130px;
-    height: 130px;
-    position: relative;
-    font-size: .8em;
-    float: left;
-    border-radius: 30px;
-    -webkit-perspective: 600px;
-    -moz-perspective: 600px;
-}*/
-
 /*homepage login*/
 
 body {
@@ -108,60 +74,6 @@ body {
   margin: 100px 0;
   padding: 20px 20px 20px 20px;
 }
-
-/* -- make sure to declare a default for every property that you want animated -- */
-/* -- general styles, including Y axis rotation -- */
-/*.tile .front {
-    position: absolute;
-    top: 0;
-    z-index: 900;
-    width: inherit;
-    height: inherit;
-    border-radius: inherit;
-    text-align: center;
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform-style: preserve-3d;
-    -moz-backface-visibility: hidden;
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
-.tile.flip .front {
-    z-index: 900;
-    -webkit-transform: rotateY(180deg);
-    -moz-transform: rotateY(180deg);
-}
-.tile .back {
-    position: absolute;
-    top: 0;
-    z-index: 800;
-    width: inherit;
-    height: inherit;
-    border-radius: inherit;
-
-    -webkit-transform: rotateY(-180deg);
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-
-    -moz-transform: rotateY(-180deg);
-    -moz-transform-style: preserve-3d;
-    -moz-backface-visibility: hidden;
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
-.tile.flip .back {
-    z-index: 1000;
-    -webkit-transform: rotateX(0deg) rotateY(0deg);
-    -moz-transform: rotateX(0deg) rotateY(0deg);
-}*/
 
 video#video {
     position: fixed;
@@ -176,28 +88,16 @@ video#video {
 .slider{
     float: top right;
     max-height: 150px;
-    /*width:100px;*/
     max-width: 800px;
-    /*margin-left: 20px;*/
-    /*text-align:center;*/
 }
 
 .slider .panel {
     height: 20px;
 }
 
-.slick-slider {
-    /*margin-left: 30px;*/
-}
-
-
-
 .slider div{
-    /*margin: auto;*/
     height: 100%;
     width: 100%;
-/*    height: 300px;
-    width: 800px;*/
     text-align: center;
 }
 
@@ -210,7 +110,6 @@ video#video {
 
 .category-name {
     text-align: center;
-    /*margin-top: 20px;*/
 }
 
 h3 {
@@ -224,8 +123,6 @@ h3 {
 }
 
 .slick-initialized {
-/*    margin-right: 70px;
-    margin-left: 70px;*/
     margin: auto 40px;
 }
 
@@ -354,10 +251,6 @@ i {
     margin-right: 20px;
 }
 
-.hobby-list-insideDiv {
-
-}
-
 .radius {
     min-height: 100px;
     min-width: 100px;
@@ -400,7 +293,6 @@ form#send_message {
 
 .usernameDiv {
     margin: 3.5em auto;
-    /*text-align: center;*/
 }
 
 .usernameDiv h1 {
@@ -446,14 +338,11 @@ form#send_message {
 
 .follow {
     display: inline-block;
-    /*margin-top: 1em;*/
     margin: 1em auto;
 }
 
 .followers {
-    /*position: absolute;*/
     display: inline-block;
-    /*margin-top: 1em;*/
     margin-left: 1em;
 }
 
@@ -480,7 +369,6 @@ form#send_message {
 
 .youtubeDiv {
     margin: 0 auto;
-    /*margin-left: 2em;*/
     display: inline-block;
 }
 
@@ -504,7 +392,6 @@ iframe {
 
 .searchDiv {
     width: 80%;
-    /*text-align: center;*/
 }
 
 .mag {
@@ -517,11 +404,13 @@ iframe {
     padding-left: 8px;
 
 }
+
 #logo p {
     margin: 0;
     padding-top: -5px;
     margin-bottom: -10px;
 }
+
 #logo i {
     font-size: 1em;
     max-height: 48%;
@@ -529,7 +418,6 @@ iframe {
 
 #logo.log-in i {
     font-size: 1.5em;
-    /*max-height: 48%;*/
 }
 
 #logo.log-in {
