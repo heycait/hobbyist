@@ -131,11 +131,18 @@ categories.each do |cat, params|
 
     all_users.sample.hobbies << new_hobby
 
+    new_question = Question.create(title: "Getting into this hobby?", body: "How do most people get into this hobby?  Can I do it alone or do I need a friend?", user_id: all_users.sample.id, hobby_id: new_hobby.id)
+    new_answer = Answer.create(body: "Join a club.", question_id: new_question.id, user_id: all_users.sample.id)
+    new_answer = Answer.create(body: "Of course you can start alone.", question_id: new_question.id, user_id: all_users.sample.id)
+
+    new_question = Question.create(title: "When to start?", body: "At what age did you begin doing this hobby/how long have you been doing it?", user_id: all_users.sample.id, hobby_id: new_hobby.id)
+    new_answer = Answer.create(body: "47", question_id: new_question.id, user_id: all_users.sample.id)
+    new_answer = Answer.create(body: "7 years", question_id: new_question.id, user_id: all_users.sample.id)
+    new_answer = Answer.create(body: "I started when I was 13.", question_id: new_question.id, user_id: all_users.sample.id)
+
+    new_question = Question.create(title: "Getting good", body: "What is the best way to get really good at this hobby.", user_id: all_users.sample.id, hobby_id: new_hobby.id)
     3.times do
-      new_question = Question.create(title: Faker::Lorem.sentence, body: Faker::Lorem.paragraph, user_id: all_users.sample.id, hobby_id: new_hobby.id)
-      3.times do
-        new_answer = Answer.create(body: Faker::Company.bs, question_id: new_question.id, user_id: all_users.sample.id)
-      end
+      new_answer = Answer.create(body: "Practice", question_id: new_question.id, user_id: all_users.sample.id)
     end
   end
 
