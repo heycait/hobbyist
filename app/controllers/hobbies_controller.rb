@@ -9,8 +9,7 @@ class HobbiesController < ApplicationController
 
   def create
     @hobby = Hobby.new(hobby_params)
-    # @hobby.creator_id = current_user.id
-    binding.pry
+
     if @hobby.save
       # imgur_client = Imgur.new('891321eba378312')
       imgur_client = Imgur.new(ENV['IMGUR'])
