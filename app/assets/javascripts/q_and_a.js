@@ -39,7 +39,7 @@ function createAnswer() {
     modal.foundation('reveal', 'close');
     modal.find('textarea').val('');
 
-    $('#panel'+question_id).find('ul').append(answer);
+    $(answer).insertBefore($('#panel'+question_id).find('.last'));
   }).fail(function() {
     console.log('error');
   });
