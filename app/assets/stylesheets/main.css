@@ -56,7 +56,10 @@ body {
 .question_body {
     border-radius: 5px;
     padding: 10px;
-    background-color: gray;
+}
+
+.answer_list {
+    list-style-type: none;
 }
 
 .add_answer_button {
@@ -447,6 +450,22 @@ button {
 
 li .last {
     height: 60px;
+}
+
+.accordion-header-right {
+    display: inline;
+    float: right;
+    padding-top: 9px;
+    padding-right: 10px;
+}
+
+.accordion-header-right li {
+    display: inline;
+}
+
+.accordion .accordion-navigation > a, .accordion dd > a {
+   display: inline-block;
+   width: 80%;
 
 }
 
