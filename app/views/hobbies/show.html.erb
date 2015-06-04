@@ -21,7 +21,6 @@
   <div class="hobby-desDiv">
     <p><%= @hobby.description %></p>
   </div>
-  <hr>
 
   <% if current_user.id == @hobby.creator_id %>
     <%= form_for @hobby do |f| %>
@@ -33,34 +32,33 @@
     <% end %>
   <% end %>
     </div>
-<div class="apiDiv columns">
-  <div class='youtubeDiv'>
-    <div id="search-results">
-    <h3> On YouTube </h3>
-      <iframe width="400" height="225" src="" allowfullscreen id="iframe"></iframe>'
-    </div>
-  </div>
 
-  <div class="meetupsDiv">
-    <% if @meetups && !@meetups.empty? %>
-    <!-- <div class='meetup-results'> -->
-      <h3>Upcoming Meetup Events</h3>
-      <% @meetups.each do |meetup| %>
-        <p>
-          <%= format_time(meetup['time']) %>
-          <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
-        </p>
-      <!-- </div> -->
-      <% end %>
-    <% else %>
-    <div class='meetup-results'>
-      <h3>No Local Meetups</h3>
-      <p>
-        <a href='https://secure.meetup.com/create/'>Start a Meetup</a>
-      </p>
+<hr>
+<div class="row apiDiv">
+  <div class="medium-6 large-6 columns">
+    <h3>On YouTube</h3>
+    <div>
+      <div id="search-results">
+        <iframe width="400" height="225" src="" allowfullscreen id="iframe"></iframe>'
+      </div>
     </div>
-    <% end %>
   </div>
+  <div class="medium-6 large-6 columns">
+  <% if @meetups && !@meetups.empty? %>
+    <h3>Upcoming Meetup Events</h3>
+  <% @meetups.each do |meetup| %>
+    <p>
+      <%= format_time(meetup['time']) %>
+      <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
+    </p>
+  <% end %>
+  <% else %>
+  <h3> No Local Meetups </h3>
+  <p>
+    <a href='https://secure.meetup.com/create/'>Start a Meetup</a>
+  </p>
+  </div>
+  <% end %>
 </div>
 
 <hr>
