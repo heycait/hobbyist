@@ -438,3 +438,7 @@ iframe {
     top: -5px;
     position: relative;
 }
+
+button {
+    background-color: #38C898;
+}
