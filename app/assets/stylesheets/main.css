@@ -445,6 +445,8 @@ iframe {
 }
 .tag{
     padding-bottom: 5%;
+    font-size: 2em;
+    text-align: center;
 }
 .about{
     background-color: white;
