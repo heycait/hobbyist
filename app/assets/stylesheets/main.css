@@ -30,7 +30,7 @@
 }*/
 
 
-h1, h3{
+h1, h2, h3 {
     font-family: Geoma, 'Syncopate';
     font-weight: bold;
     text-align: center;
@@ -426,40 +426,60 @@ form#send_message {
     margin: 0 auto;
 }
 
+.hobby-desDiv p {
+    text-align: center;
+}
+
 .hobby-bannerImg {
     display: block;
     width: 250px;
     height: 200px;
-    border-radius: 20%;
+    border-radius: 50%;
     margin: 0 auto;
 }
 
+.hobby-imageDiv {
+    margin-top: 1em;
+}
+
+.buttonDiv {
+    text-align: center;
+}
+
 .follow {
-    display: block;
+    display: inline-block;
     /*margin-top: 1em;*/
     margin: 1em auto;
 }
 
 .followers {
     /*position: absolute;*/
-    display: block;
+    display: inline-block;
     /*margin-top: 1em;*/
-    margin: 0.5em auto;
+    margin-left: 1em;
 }
 
 .add_question_button {
     display: block;
 }
+.apiDiv {
+    text-align: center;
+    height: 300px ;
+    width: 90%;
+}
 
 .meetups {
-    /*display: inline;*/
-    margin-top: 4em;
-    margin-left: 4em;
+    display: inline-block;
+    /*border: 1px solid black;*/
+    float: right;
+    /*vertical-align: middle;*/
+    /*margin-top: 4em;*/
+    /*margin-left: 1em;*/
 }
 
 .youtubeDiv {
-
-
+    margin-left: 2em;
+    display: inline-block;
 }
 
 iframe {
@@ -471,4 +491,26 @@ iframe {
     display: block;
     margin: 0 auto;
     text-align: center;
+}
+
+.questionsWrapper {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.sortButtons {
+    text-align: center;
+}
+
+#recent_sort {
+    margin-left: 2em;
+}
+
+.searchDiv {
+    width: 80%;
+    /*text-align: center;*/
+}
+
+.mag {
+    display: inline;
 }
