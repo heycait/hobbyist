@@ -1,7 +1,3 @@
-$(document).on('page:change', function() {
-  bindQuestionEvents();
-});
-
 function bindQuestionEvents() {
   $('body').on('click', 'a.vote', vote)
   $('body').on('submit', '.new_answer', createAnswer);
@@ -51,7 +47,7 @@ function createAnswer() {
 
 function createQuestion() {
   event.preventDefault();
-  // debugger
+
   var data = $(this).serialize();
 
   $.ajax({
@@ -96,6 +92,7 @@ function search(){
 
 function sortQuestions(){
   event.preventDefault();
+
   var hobby_id = $(this).attr('class');
   var url = $(this).attr('href');
   var data = { hobby_id: hobby_id }

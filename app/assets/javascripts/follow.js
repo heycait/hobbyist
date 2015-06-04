@@ -1,13 +1,8 @@
-$(document).on('page:change', function() {
-  bindFollowEvents();
-});
-
 function bindFollowEvents() {
   $('body').on('click', '#follow', followHobby);
   $('body').on('click', '#followers_button', showFollowers);
   $('body').on('click', '#add_question_button', showQuestionModal);
   $('body').on('click', '.add_answer_button', showAnswerModal);
-  // $('#question_list').on('click', '.accordion-header', accordion);
 }
 
 function followHobby() {
@@ -39,7 +34,6 @@ function followHobby() {
 }
 
 function showFollowers() {
-  // event.preventDefault();
   $('#followers-modal').foundation('reveal', 'open');
   var url = $(this).attr('href');
 
@@ -59,16 +53,5 @@ function showQuestionModal(){
 
 function showAnswerModal(){
   var modal = '#modal'+this.id;
-  // debugger
   $(modal).foundation('reveal', 'open');
 }
-
-// function accordion(){
-//   event.preventDefault();
-//   debugger
-// }
-
-// $("dd.active").find(".content").slideToggle("slow");
-// $(this).find(".content").slideToggle("slow");
-
-

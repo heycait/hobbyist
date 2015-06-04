@@ -1,9 +1,3 @@
-$(document).ready(function(){
-  init_enter_chat_room_form();
-  // init_chat_session();
-  // $('#send_message').hide();
-});
-
 var user_name = null;
 var chat_room = null;
 var ws = null;
