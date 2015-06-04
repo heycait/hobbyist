@@ -1,6 +1,5 @@
 <button class="backButton button secondary small th" onclick="goBack()">Go Back</button>
 
-
 <div class="row">
   <div class="large-12 columns" id="show_category">
     <div class="">
@@ -8,9 +7,9 @@
       <a href='./<%=@category.id%>'>
         <img class="category-bannerImg th" src="<%=@category.image_url%>"/>
       </a>
-  </div>
-  <h1><%= @category.name %></h1>
-<hr>
+    </div>
+    <h1><%= @category.name %></h1>
+    <hr>
     <ul class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 
       <% @hobbies.each do |hobby| %>
@@ -27,23 +26,14 @@
       <% end %>
 
       <li>
-        <!-- <div class="panel" id="add-div"> -->
-          <a href="#">
-          <!-- <button class="add_button_button" data-reveal-id="new-hobby-modal">Create New Hobby</button> -->
+        <a href="#">
           <img src="http://www.veryicon.com/icon/png/System/Icons8%20Metro%20Style/Very%20Basic%20Plus.png" class="add_hobby_button" id="plus-image">
-
-        <!-- </div> -->
-
         </a>
       </li>
     </ul>
   </div>
 
 </div>
-
-
-
-
 
 
 <div id="new-hobby-modal" class="<%= @category.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
