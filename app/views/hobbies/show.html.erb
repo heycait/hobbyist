@@ -1,58 +1,84 @@
-<div id="hobby_header">
-  <h3 id="hobby_title"><%= @hobby.name %></h3>
-  <p><%= @hobby.description %></p>
-  <img src="<%= @hobby.image_url %>">
+  <button class="backButton button secondary small th" onclick="goBack()">Go Back</button>
+<div class="large-12 columns">
+  <div class="hobby-imageDiv">
+    <a href='./<%=@hobby.id%>'>
+      <img class="hobby-bannerImg th" src="<%=@hobby.image_url%>"/>
+    </a>
+  </div>
+<!-- <div id="hobby_header"> -->
+  <h1 id="hobby_title"><%= @hobby.name %></h1>
+  <div class="buttonDiv">
+    <button class="follow small th" id="follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></button>
+
+    <button class="followers small th" id="followers_button" href="/hobbies/<%= @hobby.id %>/followers"><%= @hobby.users.count %>
+    <% if @hobby.users.count == 1 %>
+      Follower
+    <% else %>
+      Followers
+    <% end %>
+    </button>
+  </div>
+  <div class="hobby-desDiv">
+    <p><%= @hobby.description %></p>
+  </div>
+
   <% if current_user.id == @hobby.creator_id %>
     <%= form_for @hobby do |f| %>
       <div class="field">
         <%= f.label 'Update Hobby Image' %><br/>
         <%= f.file_field :image_url %>
         <%= f.submit 'Update' %>
+      <!-- </div> -->
+    <% end %>
+  <% end %>
+    </div>
+
+<hr>
+<div class="row">
+  <div class="medium-6 large-6 columns">
+    <h3>On YouTube</h3>
+    <div>
+      <div id="search-results">
+        <iframe width="400" height="225" src="" allowfullscreen id="iframe"></iframe>'
       </div>
-    <% end %>
-  <% end %>
-
-
-  <button id="follow" href="/hobbies/<%= @hobby.id %>/follow" role="button"><%= follow_unfollow(@hobby) %></button>
-
-  <button id="followers_button" href="/hobbies/<%= @hobby.id %>/followers"><%= @hobby.users.count %>
-  <% if @hobby.users.count == 1 %>
-    Follower
-  <% else %>
-    Followers
-  <% end %>
-</button>
-</div>
-
-<div id="meetups">
+    </div>
+  </div>
+  <div class="medium-6 large-6 columns">
   <% if @meetups && !@meetups.empty? %>
-    <h4>Upcoming Meetup Events</h4>
-    <% @meetups.each do |meetup| %>
-      <p>
-        <%= format_time(meetup['time']) %>
-        <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
-      </p>
-    <% end %>
-  <% else %>
-    <h4>No Local Meetups</h4>
+    <h3>Upcoming Meetup Events</h3>
+  <% @meetups.each do |meetup| %>
     <p>
-      <a href='https://secure.meetup.com/create/'>Start a Meetup</a>
+      <%= format_time(meetup['time']) %>
+      <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
     </p>
   <% end %>
+  <% else %>
+  <h3> No Local Meetups </h3>
+  <p class="center">
+    <a href='https://secure.meetup.com/create/'>Start a Meetup</a>
+  </p>
+  </div>
+  <% end %>
 </div>
 
-<div id="questions">
-  <h2>Questions</h2>
-  <button id="add_question_button">Ask a Question</button>
-  <button id="popular_sort" class="<%= @hobby.id %>" href="/questions/sort/popular">Sort by Popular</button>
-  <button id="recent_sort" class="<%= @hobby.id %>" href="/questions/sort/recent">Sort by Recent</button>
-  <input type="text" id="search" class="<%= @hobby.id %>" placeholder="search questions"><i class="fi-magnifying-glass"></i>
-  <ul id="question_list" class="accordion" data-accordion>
-    <% @hobby.questions.each do |question| %>
-      <%= render "questions/question", question: question %>
-    <% end %>
-  </ul>
+<hr>
+<div class="questionsWrapper">
+  <div id="questions th">
+    <h2>Questions</h2>
+    <button class="th emboss" id="add_question_button">Ask a Question</button>
+    <input type="text" id="search" class="<%= @hobby.id %> emboss" placeholder="search questions"><i class="fi-magnifying-glass"></i>
+    <div class="sortButtons">
+      <button id="popular_sort" class="<%= @hobby.id %> tiny info emboss" href="/questions/sort/popular">Sort by Popular</button>
+      <button id="recent_sort" class="<%= @hobby.id %> tiny info emboss" href="/questions/sort/recent">Sort by Recent</button>
+    </div>
+    <ul id="question_list" class="accordion" data-accordion>
+      <% @hobby.questions.each do |question| %>
+        <%= render "questions/question", question: question %>
+      <% end %>
+    </ul>
+  </div>
 </div>
+<hr>
 
 <div id="new-question-modal" class="<%= @hobby.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">Submit your question</h2>
@@ -67,9 +93,6 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
-<div id="search-results">
-  <iframe width="320" height="215" src="" allowfullscreen id="iframe"></iframe>'
-</div>
 
 
 
@@ -117,6 +140,7 @@
     </dl>
   </div>
 
+</div>
 </div>
 
 
