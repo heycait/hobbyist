@@ -1,24 +1,28 @@
 <li class="accordion-navigation">
   <a class="accordion-header" href="#panel<%= question.id %>">
     <%= question.title %>
-    <p class="question_header_right">
-      <span><%= question.created_at.strftime("%m/%d/%Y") %> </span>
-      <%= link_to raw(' <i class="fi-like"></i>'), question_path(question)+'/upvote', class: 'vote' %>
-      <span><%= question.vote_count %></span>
-      <%= link_to raw(' <i class="fi-dislike"></i>'), question_path(question)+'/downvote', class: 'vote' %>
-    </p>
+    <ul class="accordion-header-right">
+      <li><%= question.created_at.strftime("%m/%d/%Y") %> &#160</li>
+      <li><%= link_to raw('<i class="fi-like"></i>'), question_path(question)+'/upvote', class: 'q-vote' %></li>
+      <li><span><%= question.vote_count %></span></li>
+      <li><%= link_to raw('<i class="fi-dislike"></i>'), question_path(question)+'/downvote', class: 'q-vote' %>&#160</li>
+    </ul>
   </a>
+  <div class="accordion-header"></div>
   <div id="panel<%= question.id %>" class="content">
+    <h3>Question:</h3>
     <div class="question_body">
       <%= question.body %>
       <p>- <%= author(question) %></p>
     </div>
+    <h3>Answers:</h3>
     <ul class="answer_list">
     <hr>
     <% question.answers.each do |answer| %>
       <%= render "answers/answer", answer: answer %>
     <% end %>
-    <button class="add_answer_button" id="<%= question.id %>" data-reveal-id="modal<%= question.id %>">Add answer</button>
+    <li class="last">
+    <button class="button add_answer_button" id="<%= question.id %>" data-reveal-id="modal<%= question.id %>">Add answer</button></li>
     </ul>
     <div id="modal<%= question.id %>" class="<%= question.id %> reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
 
@@ -28,7 +32,7 @@
         <%= f.hidden_field :question_id, value: question.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= text_area(:answer, :body, cols: 20, rows: 5, placeholder: 'Write your answer here...') %>
-        <%= f.submit %>
+        <div class="center"><%= f.submit 'Add Answer', :class => 'button' %></div>
       <% end %>
       <a class="close-reveal-modal" aria-label="Close">&#215;</a>
     </div>

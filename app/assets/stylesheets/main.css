@@ -56,7 +56,10 @@ body {
 .question_body {
     border-radius: 5px;
     padding: 10px;
-    background-color: gray;
+}
+
+.answer_list {
+    list-style-type: none;
 }
 
 .add_answer_button {
@@ -286,9 +289,10 @@ form#send_message {
     height: 400px;
 }
 
-.backButton {
+.doNothing {
     margin-bottom: 0px;
     float: left;
+    opacity: 0;
 }
 
 .usernameDiv {
@@ -350,10 +354,6 @@ form#send_message {
     display: block;
 }
 
-.center {
-    text-align: center;
-}
-
 .meetupsDiv {
     width: 400px;
     display: inline-block;
@@ -384,14 +384,13 @@ iframe {
 
 .sortButtons {
     text-align: center;
+    width: 300px;
+    display: block;
+    margin: 0 auto;
 }
 
 #recent_sort {
     margin-left: 2em;
-}
-
-.searchDiv {
-    width: 80%;
 }
 
 .mag {
@@ -478,4 +477,63 @@ hr.stylish-hr {
 }
 .address{
     text-align: left;
+
+button {
+    background-color: #38C898;
+}
+
+li .last {
+    height: 60px;
+}
+
+.accordion-header-right {
+    display: inline;
+    float: right;
+    padding-top: 9px;
+    padding-right: 10px;
+}
+
+.accordion-header-right li {
+    display: inline;
+}
+
+.accordion .accordion-navigation > a, .accordion dd > a {
+   display: inline-block;
+   width: 80%;
+
+}
+
+.questionsWrapper {
+    padding: 2%;
+    border: 1px solid #BFBFC1;
+    background-color: white;
+}
+
+.searchDiv {
+    width: 300px;
+    float: right;
+    display: block;
+    /*margin-bottom: 4em;*/
+}
+
+.searchField {
+    display: inline-block;
+    margin-left: 0.5em;
+    float: right;
+    width: 250px;
+}
+
+.magGlass {
+    display: inline-block;
+    float: right;
+}
+
+.center {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.align {
+    text-align: center;
 }
