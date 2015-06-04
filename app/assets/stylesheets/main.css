@@ -463,34 +463,34 @@ form#send_message {
     display: block;
 }
 .apiDiv {
-    text-align: center;
-    height: 300px ;
-    width: 90%;
-}
-
-.meetups {
-    display: inline-block;
-    /*border: 1px solid black;*/
-    float: right;
-    /*vertical-align: middle;*/
-    /*margin-top: 4em;*/
-    /*margin-left: 1em;*/
-}
-
-.youtubeDiv {
-    margin-left: 2em;
-    display: inline-block;
-}
-
-iframe {
-    display: block;
     margin: 0 auto;
+    /*text-align: center;*/
+    height: 300px ;
+    width: 850px;
+}
+
+.meetupsDiv {
+    width: 400px;
+    display: inline-block;
+    float: right;
+    max-height: 300px;
 }
 
 .meetup-results {
     display: block;
     margin: 0 auto;
     text-align: center;
+}
+
+.youtubeDiv {
+    margin: 0 auto;
+    /*margin-left: 2em;*/
+    display: inline-block;
+}
+
+iframe {
+    display: block;
+    margin: 0 auto;
 }
 
 .questionsWrapper {

@@ -1,3 +1,5 @@
+  <button class="backButton button secondary small th" onclick="goBack()">Go Back</button>
+<div class="large-12 columns">
   <div class="hobby-imageDiv">
     <a href='./<%=@hobby.id%>'>
       <img class="hobby-bannerImg th" src="<%=@hobby.image_url%>"/>
@@ -31,7 +33,7 @@
     <% end %>
   <% end %>
     </div>
-<div class="apiDiv">
+<div class="apiDiv columns">
   <div class='youtubeDiv'>
     <div id="search-results">
     <h3> On YouTube </h3>
@@ -39,16 +41,16 @@
     </div>
   </div>
 
-  <div class="meetups">
+  <div class="meetupsDiv">
     <% if @meetups && !@meetups.empty? %>
-    <div class='meetup-results'>
+    <!-- <div class='meetup-results'> -->
       <h3>Upcoming Meetup Events</h3>
       <% @meetups.each do |meetup| %>
         <p>
           <%= format_time(meetup['time']) %>
           <a href="<%= meetup['event_url'] %>"><%= meetup['name'] %></a>
         </p>
-      </div>
+      <!-- </div> -->
       <% end %>
     <% else %>
     <div class='meetup-results'>
@@ -65,7 +67,7 @@
 <div class="questionsWrapper">
   <div id="questions th">
     <h2>Questions</h2>
-    <button class="th" id="add_question_button">Ask a Question</button>
+    <button class="th emboss" id="add_question_button">Ask a Question</button>
     <input type="text" id="search" class="<%= @hobby.id %> emboss" placeholder="search questions"><i class="fi-magnifying-glass"></i>
     <div class="sortButtons">
       <button id="popular_sort" class="<%= @hobby.id %> tiny info emboss" href="/questions/sort/popular">Sort by Popular</button>
@@ -140,6 +142,7 @@
     </dl>
   </div>
 
+</div>
 </div>
 
 
