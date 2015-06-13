@@ -2,6 +2,11 @@ class HobbiesController < ApplicationController
   require 'imgur'
 
   before_action :find_hobby, only: [:show, :follow, :followers]
+  before_action :category_collection, only: [:new, :create]
+
+  def index
+    @hobbies = Hobby.order(name: :asc)
+  end
 
   def create
     @hobby = Hobby.new(hobby_params)
@@ -23,6 +28,18 @@ class HobbiesController < ApplicationController
     else
       render "show"
     end
+  end
+
+  def new
+    @hobby = Hobby.new
+    @categories = Category.order(name: :asc)
+  end
+
+  def destroy
+    @hobby.destroy
+  end
+
+  def edit
   end
 
   def show
@@ -63,6 +80,11 @@ class HobbiesController < ApplicationController
 
   def find_hobby
     @hobby = Hobby.where(id: params[:id]).first
+  end
+
+  def category_collection
+    @category = Category.all.sample
+    @categories = Category.order(name: :asc)
   end
 
 end
