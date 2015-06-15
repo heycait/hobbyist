@@ -118,25 +118,9 @@
 <div class='row'>
   <div class="col-md-4">
 
-    <form id='enter_chat_room' role='form'>
-      <input type="hidden" id="chat_room" value="<%= @hobby.name %>">
-      <input type="hidden" id="user_name" value="<%= current_user.username %>">
-      <button type="submit" class="btn btn-default small button">Enter Chat</button>
-    </form>
-
       <h1><%= @hobby.name %> Chat</h1>
       <input type="hidden" id="nameInput" value="<%= current_user.username %>">
       <input type='text' id='messageInput' placeholder='Message'>
-    <form id='send_message' role='form'>
-
-      <div class="form-group">
-        <label for="message">Message</label>
-        <input type="text" class="form-control" id="message" placeholder="Enter message">
-      </div>
-
-      <button type="submit" class="btn btn-default button">Submit</button>
-
-    </form>
 
   </div>
 
@@ -145,9 +129,7 @@
     </dl>
   </div>
 </div>
-<div id='messagesDiv'></div>
 
-</div>
 
 
 
