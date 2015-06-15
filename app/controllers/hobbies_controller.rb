@@ -3,6 +3,7 @@ class HobbiesController < ApplicationController
 
   before_action :find_hobby, only: [:show, :follow, :followers]
   before_action :category_collection, only: [:new, :create]
+  before_action :hobbies_by_category, only: [:search]
 
   def index
     @hobbies = Hobby.order(name: :asc)
@@ -72,6 +73,16 @@ class HobbiesController < ApplicationController
     return render partial: 'followers', layout: false, locals: { followers: @hobby.users }
   end
 
+  def search
+    phrase = params[:phrase]
+
+    unless phrase == 'all'
+      @hobbies = @hobbies.where("lower(name) LIKE ?", "%#{phrase}%")
+    end
+
+    return render :'hobbies/_all_hobbies', layout: false
+  end
+
   private
 
   def hobby_params
@@ -85,6 +96,10 @@ class HobbiesController < ApplicationController
   def category_collection
     @category = Category.all.sample
     @categories = Category.order(name: :asc)
+  end
+
+  def hobbies_by_category
+    @hobbies = Hobby.where(category_id: params[:category_id])
   end
 
 end
