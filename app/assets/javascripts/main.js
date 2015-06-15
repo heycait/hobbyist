@@ -9,6 +9,6 @@ $(document).on('page:change', function() {
 
   bindHobbyEvents();
   bindQuestionEvents();
-  init_enter_chat_room_form();
+  // init_enter_chat_room_form();
 
 });
