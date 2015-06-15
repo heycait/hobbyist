@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans|Syncopate' rel='stylesheet' type='text/css'>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 
     <title><%= content_for?(:title) ? yield(:title) : "Hobbyist" %></title>
     <%= favicon_link_tag 'logo.png' %>
@@ -13,6 +14,7 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <%= csrf_meta_tags %>
   </head>
 

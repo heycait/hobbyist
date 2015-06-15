@@ -286,7 +286,7 @@ form#send_message {
 #chat_messages {
     background-color: white;
     overflow-y: scroll;
-    height: 400px;
+    height: 200px;
 }
 
 .doNothing {
