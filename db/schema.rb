@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601022954) do
+ActiveRecord::Schema.define(version: 20150615175446) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "body"
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 20150601022954) do
   create_table "hobbies", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.string   "image_url",   default: "/assets/gobee.png"
+    t.string   "image_url",   default: "/assets/default_hobby.png"
     t.integer  "category_id"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.integer  "creator_id"
   end
 
@@ -77,20 +77,20 @@ ActiveRecord::Schema.define(version: 20150601022954) do
   add_index "questions", ["user_id"], name: "index_questions_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",                   null: false
-    t.string   "encrypted_password",     default: "",                   null: false
+    t.string   "email",                  default: "",                                                                            null: false
+    t.string   "encrypted_password",     default: "",                                                                            null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,                    null: false
+    t.integer  "sign_in_count",          default: 0,                                                                             null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                            null: false
-    t.datetime "updated_at",                                            null: false
+    t.datetime "created_at",                                                                                                     null: false
+    t.datetime "updated_at",                                                                                                     null: false
     t.string   "username"
-    t.string   "image_url",              default: "/assets/jordan.jpg"
+    t.string   "image_url",              default: "http://project5.seoxpertise.org/wp-content/uploads/2015/03/default_user.png"
     t.string   "provider"
     t.string   "uid"
     t.float    "latitude"
