@@ -89,7 +89,7 @@ function createQuestion() {
 function search(){
   event.preventDefault();
   var phrase = $(this).val().toLowerCase();
-  var hobby_id = $(this).attr('class');
+  var hobby_id = this.classList[0];
 
   if (!phrase){
     phrase = "all";

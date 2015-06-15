@@ -9,27 +9,19 @@
       </a>
     </div>
     <h1><%= @category.name %></h1>
+
+    <div id="hobby-search-div" class='searchDiv'>
+      <div class="searchField">
+        <input type="text" id="hobby-search" class="<%= @category.id %> emboss" placeholder="search hobbies">
+      </div>
+      <div class='magGlass'>
+        <i class="fi-magnifying-glass"></i>
+      </div>
+    </div>
+
     <hr>
-    <ul class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-
-      <% @hobbies.each do |hobby| %>
-         <li>
-            <a href="/hobbies/<%= hobby.id %>">
-            <div class="emboss">
-            <img class="th" src="<%= hobby.image_url %>">
-             <div class="panel">
-                <h5><%= hobby.name %></h5>
-             </div>
-            </div>
-          </a>
-        </li>
-      <% end %>
-
-      <li>
-        <a href="#">
-          <img src="http://www.veryicon.com/icon/png/System/Icons8%20Metro%20Style/Very%20Basic%20Plus.png" class="add_hobby_button" id="plus-image" data-reveal-id="new-hobby-modal">
-        </a>
-      </li>
+    <ul id="hobby_list" class="clearing-thumbs small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+      <%= render "hobbies/all_hobbies", hobbies: @hobbies %>
     </ul>
   </div>
 
